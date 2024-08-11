@@ -73,3 +73,4 @@ C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\Microsoft.EntityFramework
 C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

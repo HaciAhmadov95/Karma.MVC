@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "u83qpoFCf6OU8O4cvo2eACXmJ2uoPj0yNAxD2b9CGUc=",
+  "Hash": "xStHaBHpWsl6x596AmJnv13IdF7DFYXIwtvg09kZ0uU=",
   "Source": "Karma.MVC",
   "BasePath": "_content/Karma.MVC",
   "Mode": "Default",
@@ -340,6 +340,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\css\\themify-icons.css"
     },
     {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\fonts\\FontAwesome.otf",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/fonts/FontAwesome.otf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\fonts\\FontAwesome.otf"
+    },
+    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\fonts\\fontawesome-webfont.eot",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -423,23 +440,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\fontawesome-webfont.woff2"
-    },
-    {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\fonts\\FontAwesome.otf",
-      "SourceId": "Karma.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
-      "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/fonts/FontAwesome.otf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\fonts\\FontAwesome.otf"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\fonts\\Linearicons-Free.eot",
@@ -2414,23 +2414,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\organic-food\\c4.jpg"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\organic-food\\cd-bg.jpg",
-      "SourceId": "Karma.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
-      "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/organic-food/cd-bg.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\organic-food\\cd-bg.jpg"
-    },
-    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\organic-food\\cd.png",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -2446,6 +2429,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\organic-food\\cd.png"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\organic-food\\cd-bg.jpg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/img/organic-food/cd-bg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\organic-food\\cd-bg.jpg"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\organic-food\\ci1.jpg",
@@ -3570,6 +3570,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Adidas\\adidas-yellow\\Harden_Volume_8_Shoes_Yellow_IG6589_06_standard.avif"
     },
     {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - black\\UB304U310___005.webp",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa - black/UB304U310___005.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - black\\UB304U310___005.webp"
+    },
+    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - black\\UB304U310___005_2ebf77d1-731b-4789-ab54-3c5d4fbf6415.webp",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -3604,12 +3621,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - black\\UB304U310___005_9bbc848f-0dcd-4bcd-9acb-164d4acfa553.webp"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - black\\UB304U310___005.webp",
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - blue\\UB341J7QW___A03.webp",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
       "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa - black/UB304U310___005.webp",
+      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa - blue/UB341J7QW___A03.webp",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3618,7 +3635,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - black\\UB304U310___005.webp"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - blue\\UB341J7QW___A03.webp"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - blue\\UB341J7QW___A03_5ffeeabb-6973-43e9-af29-653689c2fe44.webp",
@@ -3655,12 +3672,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - blue\\UB341J7QW___A03_d9964380-51df-4971-b410-fada0a41a65e.webp"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - blue\\UB341J7QW___A03.webp",
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - red\\UB361G13W___A04.webp",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
       "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa - blue/UB341J7QW___A03.webp",
+      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa - red/UB361G13W___A04.webp",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3669,7 +3686,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - blue\\UB341J7QW___A03.webp"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - red\\UB361G13W___A04.webp"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - red\\UB361G13W___A04_000059b5-6f2f-4afe-bd30-57cfe0179ef3.webp",
@@ -3706,12 +3723,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - red\\UB361G13W___A04_d0b2d5cb-5fa9-49bc-a86a-cc57146e35b1.webp"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - red\\UB361G13W___A04.webp",
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - white\\UB32193CW___001.webp",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
       "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa - red/UB361G13W___A04.webp",
+      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa - white/UB32193CW___001.webp",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3720,7 +3737,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - red\\UB361G13W___A04.webp"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - white\\UB32193CW___001.webp"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - white\\UB32193CW___001_c1460afd-1cb1-4017-b44d-86d11e55c0b7.webp",
@@ -3757,12 +3774,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - white\\UB32193CW___001_efec390d-1ddd-4f23-ad54-e468314c6f95.webp"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - white\\UB32193CW___001.webp",
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa-green\\UB361G13W___A07.webp",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
       "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa - white/UB32193CW___001.webp",
+      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa-green/UB361G13W___A07.webp",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3771,7 +3788,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa - white\\UB32193CW___001.webp"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa-green\\UB361G13W___A07.webp"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa-green\\UB361G13W___A07_75e77885-d9c8-4984-8fea-ecde5ce62492.webp",
@@ -3806,23 +3823,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa-green\\UB361G13W___A07_cbb05f53-cb9d-4949-b49c-f7096f8ff86d.webp"
-    },
-    {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa-green\\UB361G13W___A07.webp",
-      "SourceId": "Karma.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
-      "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Kappa/Kappa-green/UB361G13W___A07.webp",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Kappa\\Kappa-green\\UB361G13W___A07.webp"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Logos\\Adidas-logo-768x432.jpg",
@@ -4607,6 +4607,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Nike\\nike-yellow\\W+AIR+JORDAN+1+ZM+AIR+CMFT+2.png"
     },
     {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - black\\FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (2).avif",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/img/product/Final-Project Images/Puma/Puma - black/FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (2).avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - black\\FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (2).avif"
+    },
+    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - black\\FENTY-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (1).avif",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -4658,12 +4675,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - black\\FENTY-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers.avif"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - black\\FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (2).avif",
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - blue\\Palermo1-Vintage-Sneakers (2).avif",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
       "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Puma/Puma - black/FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (2).avif",
+      "RelativePath": "assets/img/product/Final-Project Images/Puma/Puma - blue/Palermo1-Vintage-Sneakers (2).avif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4672,7 +4689,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - black\\FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (2).avif"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - blue\\Palermo1-Vintage-Sneakers (2).avif"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - blue\\Palermo-Vintage-Sneakers (1).avif",
@@ -4726,12 +4743,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - blue\\Palermo-Vintage-Sneakers.avif"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - blue\\Palermo1-Vintage-Sneakers (2).avif",
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -red\\FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (3).avif",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
       "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Puma/Puma - blue/Palermo1-Vintage-Sneakers (2).avif",
+      "RelativePath": "assets/img/product/Final-Project Images/Puma/Puma -red/FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (3).avif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4740,7 +4757,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma - blue\\Palermo1-Vintage-Sneakers (2).avif"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -red\\FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (3).avif"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -red\\FENTY-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (1).avif",
@@ -4794,12 +4811,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -red\\FENTY-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers.avif"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -red\\FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (3).avif",
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -yellow\\LOVE1-MARATHON-Suede-Sneakers (3).avif",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
       "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Puma/Puma -red/FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (3).avif",
+      "RelativePath": "assets/img/product/Final-Project Images/Puma/Puma -yellow/LOVE1-MARATHON-Suede-Sneakers (3).avif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4808,7 +4825,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -red\\FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (3).avif"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -yellow\\LOVE1-MARATHON-Suede-Sneakers (3).avif"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -yellow\\LOVE-MARATHON-Suede-Sneakers (1).avif",
@@ -4860,23 +4877,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -yellow\\LOVE-MARATHON-Suede-Sneakers.avif"
-    },
-    {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -yellow\\LOVE1-MARATHON-Suede-Sneakers (3).avif",
-      "SourceId": "Karma.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
-      "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/img/product/Final-Project Images/Puma/Puma -yellow/LOVE1-MARATHON-Suede-Sneakers (3).avif",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma -yellow\\LOVE1-MARATHON-Suede-Sneakers (3).avif"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\Final-Project Images\\Puma\\Puma-white\\GV-Special-Sneakers (1).avif",
