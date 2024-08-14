@@ -1,5 +1,10 @@
-﻿namespace Karma.MVC.Models;
+﻿using Karma.MVC.Models.Base;
+using System.ComponentModel.DataAnnotations;
 
-public class Brand
+namespace Karma.MVC.Models;
+
+public class Brand : BaseEntity
 {
+    [Required]
+    public string Name { get; set; }
 }

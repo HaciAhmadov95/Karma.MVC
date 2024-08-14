@@ -1,5 +1,7 @@
 using Karma.MVC.Data;
 using Karma.MVC.Models.Identity;
+using Karma.MVC.Repositories;
+using Karma.MVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +27,16 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = true;
     options.SignIn.RequireConfirmedEmail = true;
 });
+
+builder.Services.AddScoped<IBlogService, BlogRepository>();
+builder.Services.AddScoped<IBrandService, BrandRepository>();
+builder.Services.AddScoped<ICartService, CartRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryRepository>();
+builder.Services.AddScoped<ICommentService, CommentRepository>();
+builder.Services.AddScoped<IImageService, ImageRepository>();
+builder.Services.AddScoped<IProductService, ProductRepository>();
+builder.Services.AddScoped<ISubscriberService, SubscriberRepository>();
+builder.Services.AddScoped<IWishlistService, WishlistRepository>();
 
 var app = builder.Build();
 

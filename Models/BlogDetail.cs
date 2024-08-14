@@ -1,5 +1,7 @@
-﻿namespace Karma.MVC.Models;
+﻿using Karma.MVC.Models.Base;
 
-public class BlogDetail
+namespace Karma.MVC.Models;
+
+public class BlogDetail : BaseEntity
 {
 }

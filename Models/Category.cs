@@ -1,5 +1,10 @@
-﻿namespace Karma.MVC.Models;
+﻿using Karma.MVC.Models.Base;
+using System.ComponentModel.DataAnnotations;
 
-public class Category
+namespace Karma.MVC.Models;
+
+public class Category : BaseEntity
 {
+    [Required]
+    public string Name { get; set; }
 }
