@@ -1,6 +1,6 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Helpers.Extensions;
+using Karma.MVC.Models;
 using Karma.MVC.Models.Identity;
-using Karma.MVC.Services;
 using Karma.MVC.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,23 +15,15 @@ namespace Karma.MVC.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<AppUser> _signInManager;
-        private readonly ICartService _cartService;
-        private readonly IProductService _productService;
-        private readonly ISubscriberService _subscriberService;
 
         public AuthenticationController(UserManager<AppUser> userManager,
                RoleManager<IdentityRole> roleManager,
-               SignInManager<AppUser> signInManager,
-               ICartService cartService,
-               IProductService productService,
-               ISubscriberService subscriberService)
+               SignInManager<AppUser> signInManager
+        )
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
-            _cartService = cartService;
-            _productService = productService;
-            _subscriberService = subscriberService;
         }
 
         [HttpGet(nameof(Register))]
@@ -60,7 +52,7 @@ namespace Karma.MVC.Controllers
 
             Wishlist wishlist = new();
 
-            AppUser appUser = new AppUser()
+            AppUser appUser = new()
             {
                 Firstname = registerVM.Firstname,
                 Lastname = registerVM.Lastname,
@@ -81,7 +73,14 @@ namespace Karma.MVC.Controllers
                 return View(registerVM);
             };
 
-            var roleResult = await _userManager.AddToRoleAsync(appUser, Roles.Member.ToString());
+            string role = Roles.Member.ToString();
+
+            if (!User.IsInAnyRole("SuperAdmin", "Admin"))
+            {
+                role = Roles.SuperAdmin.ToString();
+            }
+
+            var roleResult = await _userManager.AddToRoleAsync(appUser, role);
 
             if (!roleResult.Succeeded)
             {
@@ -93,7 +92,7 @@ namespace Karma.MVC.Controllers
             };
 
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
-            var confirmationLink = Url.Action("ConfirmEmail", "Account", new { token, username = appUser.UserName }, HttpContext.Request.Scheme);
+            var confirmationLink = Url.Action("ConfirmEmail", "Authentication", new { token, username = appUser.UserName }, HttpContext.Request.Scheme);
 
             SendEmail(appUser.Email, confirmationLink);
 
@@ -148,7 +147,7 @@ namespace Karma.MVC.Controllers
                 return View(loginVM);
             }
 
-            if (await _userManager.IsInRoleAsync(appUser, Roles.Admin.ToString()))
+            if (await _userManager.IsInRoleAsync(appUser, Roles.Admin.ToString()) || await _userManager.IsInRoleAsync(appUser, Roles.SuperAdmin.ToString()))
             {
                 return RedirectToAction("Index", controllerName: "Dashboard", new { area = "Admin" });
             }
@@ -179,14 +178,18 @@ namespace Karma.MVC.Controllers
                 to,
                 subject,
                 body
-            );
-            mailMessage.BodyEncoding = System.Text.Encoding.UTF8;
-            mailMessage.IsBodyHtml = true;
+            )
+            {
+                BodyEncoding = System.Text.Encoding.UTF8,
+                IsBodyHtml = true
+            };
 
-            SmtpClient client = new("smtp.gmail.com", 587);
-            client.EnableSsl = true;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(from, "vktvykutjpgmwvyz");
+            SmtpClient client = new("smtp.gmail.com", 587)
+            {
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(from, "zjdyemefrbjoeyie")
+            };
             try
             {
                 client.Send(mailMessage);
@@ -199,16 +202,16 @@ namespace Karma.MVC.Controllers
             return Json("Ok");
         }
 
-        public async Task CreateRoles()
-        {
-            foreach (var item in Enum.GetValues(typeof(Roles)))
-            {
-                if (!await _roleManager.RoleExistsAsync(item.ToString()))
-                {
-                    await _roleManager.CreateAsync(new IdentityRole(item.ToString()));
-                }
-            }
-        }
+        //public async Task CreateRoles()
+        //{
+        //    foreach (var item in Enum.GetValues(typeof(Roles)))
+        //    {
+        //        if (!await _roleManager.RoleExistsAsync(item.ToString()))
+        //        {
+        //            await _roleManager.CreateAsync(new IdentityRole(item.ToString()));
+        //        }
+        //    }
+        //}
 
         public async Task<IActionResult> ConfirmEmail(string username, string token)
         {

@@ -4,6 +4,7 @@ namespace Karma.MVC.ViewModels;
 
 public class RegisterVM
 {
+
     [Required, MaxLength(50)]
     public string Firstname { get; set; }
 

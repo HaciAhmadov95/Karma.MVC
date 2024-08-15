@@ -1,5 +1,6 @@
 using Karma.MVC.Data;
 using Karma.MVC.Models.Identity;
+using Karma.MVC.Profiles;
 using Karma.MVC.Repositories;
 using Karma.MVC.Services;
 using Microsoft.AspNetCore.Identity;
@@ -37,6 +38,8 @@ builder.Services.AddScoped<IImageService, ImageRepository>();
 builder.Services.AddScoped<IProductService, ProductRepository>();
 builder.Services.AddScoped<ISubscriberService, SubscriberRepository>();
 builder.Services.AddScoped<IWishlistService, WishlistRepository>();
+
+builder.Services.AddAutoMapper(typeof(Mapper));
 
 var app = builder.Build();
 

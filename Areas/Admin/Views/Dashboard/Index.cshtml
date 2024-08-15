@@ -1,0 +1,66 @@
+﻿@model DashboardVM
+
+<div class="container content-wrapper">
+    <div class="row">
+        <div class="col-md-7 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title mb-0">Comments</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Username</th>
+                                    <th>Comment</th>
+                                    <th>Setting</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var comment in Model.Comments)
+                                {
+                                    <tr>
+                                        @if (comment.AppUser.Image is not null)
+                                        {
+                                            <td><img src="~/assets/uploads/images/@comment.AppUser.Image.Url" /></td>
+                                        }
+                                        else
+                                        {
+                                            <td><img src="~/assets/uploads/images/NoProfilePhoto.jpg" /></td>
+                                        }
+                                        <td class="font-weight-bold">@comment.AppUser.UserName</td>
+                                        <td>@comment.Content</td>
+                                        <td>
+                                            <a asp-area="admin" asp-controller="dashboard" asp-action="deletecomment" asp-route-id="@comment.Id" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       @* <div class="col-md-5 stretch-card grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title">FeedBacks</p>
+                    <ul class="icon-data-list">
+                        @foreach (var feedBack in Model.FeedBacks)
+                        {
+                            <li>
+                                <div class="d-flex">
+                                    <img src="~/assets/uploads/images/@feedBack.UserImage.Url" alt="user">
+                                    <div>
+                                        <p class="text-info mb-1">@feedBack.AppUser.Firstname @feedBack.AppUser.Lastname</p>
+                                        <p class="mb-0">@feedBack.Content</p>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>

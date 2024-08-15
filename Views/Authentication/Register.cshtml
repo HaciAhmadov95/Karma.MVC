@@ -1,4 +1,6 @@
-﻿<!-- Start Banner Area -->
+﻿@model RegisterVM
+
+<!-- Start Banner Area -->
 <section class="banner-area organic-breadcrumb">
 	<div class="container">
 		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -29,21 +31,24 @@
 		<div class="col-lg-12">
 			<div class="login_form_inner">
 				<h3>Register</h3>
-				<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+				<form asp-controller ="Authentication" asp-action="Register" class="row login_form" method="post" id="contactForm">
 					<div class="col-md-12 form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Fullname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fullname'">
+						<input asp-for="Firstname" type="text" class="form-control" id="name" placeholder="Firstname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Firstname'">
 					</div>
 					<div class="col-md-12 form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+						<input asp-for="Lastname" type="text" class="form-control" id="name" placeholder="Lastname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lastname'">
 					</div>
 					<div class="col-md-12 form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+						<input asp-for="Username" type="text" class="form-control" id="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
 					</div>
 					<div class="col-md-12 form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+						<input asp-for="Email" type="email" class="form-control" id="name" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
 					</div>
 					<div class="col-md-12 form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+						<input asp-for="Password" type="password" class="form-control" id="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+					</div>
+					<div class="col-md-12 form-group">
+						<input asp-for="ConfirmPassword" type="password" class="form-control" id="name" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
 					</div>
 					<div class="col-md-12 form-group">
 						<!-- <div class="creat_account">

@@ -60,7 +60,11 @@
 							<li class="nav-item"><a class="nav-link" asp-controller="Contact" asp-action="Index">Contact</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
+							@if(User.Identity.IsAuthenticated){
+							<li class="nav-item"><a asp-controller="Account" asp-action="Index"><span class="ti-user"></span></a></li>
+							}else {
 							<li class="nav-item"><a asp-controller="Authentication" asp-action="Login"><span class="ti-user"></span></a></li>
+							}
 							<li class="nav-item"><a asp-controller="Cart" asp-action="Index"><span class="ti-bag"></span></a></li>
 							<li class="nav-item">
 								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>

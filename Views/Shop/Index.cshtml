@@ -1,4 +1,6 @@
-﻿<!-- Start Banner Area -->
+﻿@model ShopVM
+
+<!-- Start Banner Area -->
 <section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -115,6 +117,8 @@
 				<section class="lattest-product-area pb-40 category-list">
 					<div class="row">
 						<!-- single product -->
+						@foreach (var product in Model.GetProductVMs)
+						{
 						<div class="col-lg-4 col-md-6">
 							<div class="single-product">
 								<img class="img-fluid" src="~/assets/img/product/Final-Project Images/Puma/Puma - black/FENTY1-x-PUMA-Creeper-Phatty-In-Session-Men's-Sneakers (2).avif" alt="">
@@ -122,8 +126,12 @@
 									<h6>addidas New Hammer sole
 										for Sports person</h6>
 									<div class="price">
-										<h6>$150.00</h6>
-										<h6 class="l-through">$210.00</h6>
+										
+										@if(product.DiscountValue != 0)
+										{
+											<h6>$@(product.Price - (product.Price * product.DiscountValue / 100))</h6>
+											<h6 class="l-through">$@product.Price</h6>
+										}
 									</div>
 									<div class="prd-bottom">
 
@@ -145,6 +153,7 @@
 							</div>
 						</div>
 
+						}
 					</div>
 				</section>
 				<!-- End Best Seller -->

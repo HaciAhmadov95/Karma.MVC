@@ -74,3 +74,4 @@ C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\Microsoft.Extensions.Depe
 C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\hsyna\Desktop\Haci\Karma.MVC\bin\Debug\net7.0\AutoMapper.dll

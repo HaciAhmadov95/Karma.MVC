@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zXzPJULmHFgWOLn4jvXHrz6SAH2yWLhY7vO235dHQxYc896yWMStX3g4WxDvyUYEv+tnlhAQL3VmjAHG9CIfng==",
+  "dgSpecHash": "zBmv86dLtI6jPK8I+0hnzgxTYenOFSMJAVotbqLwlrWbd9wqXJwbWR2/ksxTWArJ7zUoft0x6D7yel8m+Dirbg==",
   "success": true,
   "projectFilePath": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\Karma.MVC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hsyna\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\hsyna\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\hsyna\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\hsyna\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
