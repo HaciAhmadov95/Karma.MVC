@@ -1,10 +1,18 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Data;
+using Karma.MVC.Models;
 using Karma.MVC.Services;
 
 namespace Karma.MVC.Repositories;
 
 public class ImageRepository : IImageService
 {
+    private readonly AppDbContext _context;
+
+    public ImageRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
     public Task<Image> Get(int? id)
     {
         throw new NotImplementedException();

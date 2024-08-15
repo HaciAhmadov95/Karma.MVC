@@ -1,22 +1,40 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Data;
+using Karma.MVC.Models;
 using Karma.MVC.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Karma.MVC.Repositories;
 
 public class WishlistRepository : IWishlistService
 {
-    public Task<Wishlist> Get(int? id)
+    private readonly AppDbContext _context;
+
+    public WishlistRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<List<Wishlist>> GetAll()
+    public async Task<Wishlist> Get(int? id)
     {
-        throw new NotImplementedException();
+        Wishlist wishlist = await _context.Wishlists.Include(n => n.Products)
+                                                    .ThenInclude(n => n.Images)
+                                                    .FirstOrDefaultAsync();
+        return wishlist;
+    }
+
+    public async Task<List<Wishlist>> GetAll()
+    {
+        List<Wishlist> wishlists = await _context.Wishlists.Include(n => n.Products)
+                                                           .ThenInclude(n => n.Images)
+                                                           .ToListAsync();
+
+        return wishlists;
     }
 
     public Task Create(Wishlist entity)
     {
+
+
         throw new NotImplementedException();
     }
     public Task Update(int id, Wishlist entity)
@@ -29,8 +47,8 @@ public class WishlistRepository : IWishlistService
         throw new NotImplementedException();
     }
 
-    public Task SaveChanges()
+    public async Task SaveChanges()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 }

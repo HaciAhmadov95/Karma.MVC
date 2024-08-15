@@ -1,18 +1,32 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Data;
+using Karma.MVC.Models;
 using Karma.MVC.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Karma.MVC.Repositories;
 
 public class BrandRepository : IBrandService
 {
-    public Task<Brand> Get(int? id)
+    private readonly AppDbContext _context;
+
+    public BrandRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<List<Brand>> GetAll()
+    public async Task<Brand> Get(int? id)
     {
-        throw new NotImplementedException();
+        Brand brand = await _context.Brands.Where(n => n.Id == id)
+                                           .FirstOrDefaultAsync();
+
+        return brand;
+    }
+
+    public async Task<List<Brand>> GetAll()
+    {
+        List<Brand> brands = await _context.Brands.ToListAsync();
+
+        return brands;
     }
 
     public Task Create(Brand entity)
@@ -30,8 +44,8 @@ public class BrandRepository : IBrandService
         throw new NotImplementedException();
     }
 
-    public Task SaveChanges()
+    public async Task SaveChanges()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 }

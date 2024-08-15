@@ -1,18 +1,32 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Data;
+using Karma.MVC.Models;
 using Karma.MVC.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Karma.MVC.Repositories;
 
 public class SubscriberRepository : ISubscriberService
 {
-    public Task<Subscriber> Get(int? id)
+    private readonly AppDbContext _context;
+
+    public SubscriberRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<List<Subscriber>> GetAll()
+    public async Task<Subscriber> Get(int? id)
     {
-        throw new NotImplementedException();
+        Subscriber subscriber = await _context.Subscribers.Where(n => n.Id == id)
+                                                          .FirstOrDefaultAsync();
+
+        return subscriber;
+    }
+
+    public async Task<List<Subscriber>> GetAll()
+    {
+        List<Subscriber> subscribers = await _context.Subscribers.ToListAsync();
+
+        return subscribers;
     }
 
     public Task Create(Subscriber entity)
@@ -29,8 +43,8 @@ public class SubscriberRepository : ISubscriberService
         throw new NotImplementedException();
     }
 
-    public Task SaveChanges()
+    public async Task SaveChanges()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 }

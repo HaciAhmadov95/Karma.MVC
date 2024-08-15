@@ -1,18 +1,36 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Data;
+using Karma.MVC.Models;
 using Karma.MVC.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Karma.MVC.Repositories;
 
 public class CommentRepository : ICommentService
 {
-    public Task<Comment> Get(int? id)
+    private readonly AppDbContext _contex;
+
+    public CommentRepository(AppDbContext contex)
     {
-        throw new NotImplementedException();
+        _contex = contex;
     }
 
-    public Task<List<Comment>> GetAll()
+    public async Task<Comment> Get(int? id)
     {
-        throw new NotImplementedException();
+        Comment comment = await _contex.Comments.Where(n => n.Id == id)
+                                                .Include(n => n.AppUser)
+                                                .ThenInclude(n => n.Image)
+                                                .FirstOrDefaultAsync();
+
+        return comment;
+    }
+
+    public async Task<List<Comment>> GetAll()
+    {
+        List<Comment> comments = await _contex.Comments.Include(n => n.AppUser)
+                                                       .ThenInclude(n => n.Image)
+                                                       .ToListAsync();
+
+        return comments;
     }
 
     public Task Create(Comment entity)
@@ -30,8 +48,8 @@ public class CommentRepository : ICommentService
         throw new NotImplementedException();
     }
 
-    public Task SaveChanges()
+    public async Task SaveChanges()
     {
-        throw new NotImplementedException();
+        await _contex.SaveChangesAsync();
     }
 }

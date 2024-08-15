@@ -1,18 +1,38 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Data;
+using Karma.MVC.Models;
 using Karma.MVC.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Karma.MVC.Repositories;
 
 public class ProductRepository : IProductService
 {
-    public Task<Product> Get(int? id)
+    private readonly AppDbContext _context;
+
+    public ProductRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<List<Product>> GetAll()
+    public async Task<Product> Get(int? id)
     {
-        throw new NotImplementedException();
+        Product product = await _context.Products.Where(n => n.Id == id)
+                                                 .Include(n => n.Brand)
+                                                 .Include(n => n.Category)
+                                                 .Include(n => n.Colors)
+                                                 .Include(n => n.Comments)
+                                                 .ThenInclude(n => n.AppUser)
+                                                 .Include(n => n.Images)
+                                                 .FirstOrDefaultAsync();
+
+        return product;
+    }
+
+    public async Task<List<Product>> GetAll()
+    {
+        List<Product> products = await _context.Products.ToListAsync();
+
+        return products;
     }
 
     public Task Create(Product entity)
@@ -29,8 +49,8 @@ public class ProductRepository : IProductService
         throw new NotImplementedException();
     }
 
-    public Task SaveChanges()
+    public async Task SaveChanges()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 }

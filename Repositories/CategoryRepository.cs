@@ -1,18 +1,31 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Data;
+using Karma.MVC.Models;
 using Karma.MVC.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Karma.MVC.Repositories;
 
 public class CategoryRepository : ICategoryService
 {
-    public Task<Category> Get(int? id)
+    private readonly AppDbContext _context;
+
+    public CategoryRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<List<Category>> GetAll()
+    public async Task<Category> Get(int? id)
     {
-        throw new NotImplementedException();
+        Category category = await _context.Categories.Where(n => n.Id == id)
+                                                     .FirstOrDefaultAsync();
+        return category;
+    }
+
+    public async Task<List<Category>> GetAll()
+    {
+        List<Category> categories = await _context.Categories.ToListAsync();
+
+        return categories;
     }
 
     public Task Create(Category entity)
@@ -29,8 +42,8 @@ public class CategoryRepository : ICategoryService
         throw new NotImplementedException();
     }
 
-    public Task SaveChanges()
+    public async Task SaveChanges()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 }

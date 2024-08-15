@@ -13,6 +13,8 @@ namespace Karma.MVC.Models.Identity
         public Image? Image { get; set; }
 
         public ICollection<Comment>? Comments { get; set; }
+        public ICollection<Product>? Products { get; set; }
+
         public int CartId { get; set; }
         public Cart Cart { get; set; }
         public int WishlistId { get; set; }

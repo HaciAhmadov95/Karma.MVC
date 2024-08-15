@@ -1,18 +1,34 @@
-﻿using Karma.MVC.Models;
+﻿using Karma.MVC.Data;
+using Karma.MVC.Models;
 using Karma.MVC.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Karma.MVC.Repositories;
 
 public class BlogRepository : IBlogService
 {
-    public Task<Blog> Get(int? id)
+    private readonly AppDbContext _context;
+
+    public BlogRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<List<Blog>> GetAll()
+    public async Task<Blog> Get(int? id)
     {
-        throw new NotImplementedException();
+        Blog blog = await _context.Blogs.Where(n => n.Id == id)
+                                        .Include(n => n.Images)
+                                        .FirstOrDefaultAsync();
+
+        return blog;
+    }
+
+    public async Task<List<Blog>> GetAll()
+    {
+        List<Blog> blogs = await _context.Blogs.Include(n => n.Images)
+                                               .ToListAsync();
+
+        return blogs;
     }
 
     public Task Create(Blog entity)
@@ -29,9 +45,9 @@ public class BlogRepository : IBlogService
         throw new NotImplementedException();
     }
 
-    public Task SaveChanges()
+    public async Task SaveChanges()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 
 }
