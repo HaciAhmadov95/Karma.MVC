@@ -333,6 +333,14 @@
       "PackagePath": "staticwebassets\\areas\\admin\\fonts\\Roboto\\Roboto-Regular.woff2"
     },
     {
+      "Id": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\areas\\admin\\images\\admin-deafult-pp.jpg",
+      "PackagePath": "staticwebassets\\areas\\admin\\images\\admin-deafult-pp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\areas\\admin\\images\\admin-default.avif",
+      "PackagePath": "staticwebassets\\areas\\admin\\images\\admin-default.avif"
+    },
+    {
       "Id": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\areas\\admin\\images\\auth\\lockscreen-bg.jpg",
       "PackagePath": "staticwebassets\\areas\\admin\\images\\auth\\lockscreen-bg.jpg"
     },

@@ -1,0 +1,56 @@
+﻿@model Product
+
+@{
+    var categories = (List<Category>)ViewData["Categories"];
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Product - Create</h4>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <form enctype="multipart/form-data" method="post" class="forms-sample">
+                        <div class="form-group">
+                            <label asp-for="Title">Title</label>
+                            <input asp-for="Title" class="form-control" placeholder="Create Title">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description">Description</label>
+                            <input asp-for="Description" class="form-control" placeholder="Create Description">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Price">Price(For Month)</label>
+                            <input asp-for="Price" class="form-control" placeholder="Add Price" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MainImage">Main Image</label>
+                            <input accept="image/*" class="form-control" asp-for="MainImage">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ImageFile">Image</label>
+                            <input accept="image/*" class="form-control" asp-for="ImageFile">
+                        </div>
+                        <div class="form-group">
+                            <h4 class="my-4">Select Categories</h4>
+                            <div class="d-flex flex-wrap">
+                                @for (var i = 0; i < categories.Count; i++)
+                                {
+                                    
+                                    <div class="col-lg-6 form-group">
+                                        <input type="checkbox" asp-for="@Model.Category" />
+                                        <label asp-for="@Model.Category">@categories[i].Name</label>
+                                        <input type="hidden" asp-for="@categories[i].Id" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2 text-white">Submit</button>
+                        <button asp-controller="product" asp-action="index" class="btn btn-secondary text-white">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

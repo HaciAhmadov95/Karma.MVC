@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zunph4MXjjNtVFPk9c6g8KmbyuZUym8/vf6oRXAFX5o=",
+  "Hash": "s0Je3STk0yq2bpqrCT9tYZME3powBhL04Yn15kZBxDU=",
   "Source": "Karma.MVC",
   "BasePath": "_content/Karma.MVC",
   "Mode": "Default",
@@ -1443,6 +1443,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\areas\\admin\\fonts\\Roboto\\Roboto-Regular.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\areas\\admin\\images\\admin-deafult-pp.jpg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "areas/admin/images/admin-deafult-pp.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\areas\\admin\\images\\admin-deafult-pp.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\areas\\admin\\images\\admin-default.avif",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "areas/admin/images/admin-default.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\areas\\admin\\images\\admin-default.avif"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\areas\\admin\\images\\auth\\lockscreen-bg.jpg",

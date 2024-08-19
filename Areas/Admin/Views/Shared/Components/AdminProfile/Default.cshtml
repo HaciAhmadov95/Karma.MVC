@@ -5,11 +5,10 @@
         @if (Model.ImageId is not null)
         {
             <img src="~/assets/uploads/images/@Model.Image.Url" alt="profile" />
-
         }
         else
         {
-            <img src="~/assets/uploads/images/NoProfilePhoto.jpg" alt="profile" />
+            <img src="~/areas/admin/images/admin-deafult-pp.jpg" alt="profile" />
         }
     </a>
     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -17,7 +16,7 @@
             <i class="ti-settings text-primary"></i>
             Settings
         </a>
-        <a asp-area="" asp-controller="account" asp-action="logout" class="dropdown-item">
+        <a asp-area="" asp-controller="Authentication" asp-action="logout" class="dropdown-item">
             <i class="ti-power-off text-primary"></i>
             Logout
         </a>
