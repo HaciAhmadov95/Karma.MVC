@@ -16,7 +16,8 @@ public class BrandRepository : IBrandService
 
     public async Task<Brand> Get(int? id)
     {
-        Brand brand = await _context.Brands.Where(n => n.Id == id)
+        Brand brand = await _context.Brands.Where(n => !n.IsDeleted)
+                                           .Where(n => n.Id == id)
                                            .FirstOrDefaultAsync();
 
         return brand;
@@ -24,24 +25,33 @@ public class BrandRepository : IBrandService
 
     public async Task<List<Brand>> GetAll()
     {
-        List<Brand> brands = await _context.Brands.ToListAsync();
+        List<Brand> brands = await _context.Brands.Where(n => !n.IsDeleted)
+                                                  .ToListAsync();
 
         return brands;
     }
 
-    public Task Create(Brand entity)
+    public async Task Create(Brand entity)
     {
-        throw new NotImplementedException();
+        entity.CreateDate = DateTime.UtcNow.AddHours(4);
+        await _context.Brands.AddAsync(entity);
     }
 
-    public Task Update(int id, Brand entity)
+    public async Task Update(int id, Brand entity)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        data.UpdateDate = DateTime.UtcNow.AddHours(4);
+        data.Name = entity.Name;
+
+        _context.Brands.Update(data);
     }
 
-    public Task Delete(int? id)
+    public async Task Delete(int? id)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        data.IsDeleted = true;
     }
 
     public async Task SaveChanges()

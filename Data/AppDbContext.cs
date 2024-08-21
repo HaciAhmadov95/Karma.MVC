@@ -10,6 +10,7 @@ public class AppDbContext : IdentityDbContext<AppUser>
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<Blog> Blogs { get; set; }
+    public DbSet<BlogCategory> BlogCategories { get; set; }
     public DbSet<Brand> Brands { get; set; }
     public DbSet<Cart> Carts { get; set; }
     public DbSet<Category> Categories { get; set; }

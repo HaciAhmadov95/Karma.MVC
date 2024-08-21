@@ -64,6 +64,9 @@ namespace Karma.MVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("BlogCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -85,7 +88,35 @@ namespace Karma.MVC.Migrations
 
                     b.HasIndex("AppUserId");
 
+                    b.HasIndex("BlogCategoryId");
+
                     b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("Karma.MVC.Models.BlogCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BlogCategories");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Brand", b =>
@@ -678,7 +709,15 @@ namespace Karma.MVC.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Karma.MVC.Models.BlogCategory", "BlogCategory")
+                        .WithMany("Blogs")
+                        .HasForeignKey("BlogCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("AppUser");
+
+                    b.Navigation("BlogCategory");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Comment", b =>
@@ -840,6 +879,11 @@ namespace Karma.MVC.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("Karma.MVC.Models.BlogCategory", b =>
+                {
+                    b.Navigation("Blogs");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Cart", b =>

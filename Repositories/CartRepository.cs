@@ -16,7 +16,8 @@ public class CartRepository : ICartService
 
     public async Task<Cart> Get(int? id)
     {
-        Cart cart = await _context.Carts.Include(n => n.Products)
+        Cart cart = await _context.Carts.Where(n => !n.IsDeleted)
+                                        .Include(n => n.Products)
                                         .ThenInclude(n => n.Images)
                                         .FirstOrDefaultAsync();
 
@@ -25,7 +26,8 @@ public class CartRepository : ICartService
 
     public async Task<List<Cart>> GetAll()
     {
-        List<Cart> carts = await _context.Carts.Include(n => n.Products)
+        List<Cart> carts = await _context.Carts.Where(n => !n.IsDeleted)
+                                               .Include(n => n.Products)
                                                .ThenInclude(n => n.Images)
                                                .ToListAsync();
         return carts;

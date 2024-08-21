@@ -16,7 +16,8 @@ public class WishlistRepository : IWishlistService
 
     public async Task<Wishlist> Get(int? id)
     {
-        Wishlist wishlist = await _context.Wishlists.Include(n => n.Products)
+        Wishlist wishlist = await _context.Wishlists.Where(n => !n.IsDeleted)
+                                                    .Include(n => n.Products)
                                                     .ThenInclude(n => n.Images)
                                                     .FirstOrDefaultAsync();
         return wishlist;
@@ -24,7 +25,8 @@ public class WishlistRepository : IWishlistService
 
     public async Task<List<Wishlist>> GetAll()
     {
-        List<Wishlist> wishlists = await _context.Wishlists.Include(n => n.Products)
+        List<Wishlist> wishlists = await _context.Wishlists.Where(n => !n.IsDeleted)
+                                                           .Include(n => n.Products)
                                                            .ThenInclude(n => n.Images)
                                                            .ToListAsync();
 

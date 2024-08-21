@@ -16,7 +16,8 @@ public class ProductRepository : IProductService
 
     public async Task<Product> Get(int? id)
     {
-        Product product = await _context.Products.Where(n => n.Id == id)
+        Product product = await _context.Products.Where(n => !n.IsDeleted)
+                                                 .Where(n => n.Id == id)
                                                  .Include(n => n.Brand)
                                                  .Include(n => n.Category)
                                                  .Include(n => n.Colors)
@@ -30,7 +31,8 @@ public class ProductRepository : IProductService
 
     public async Task<List<Product>> GetAll()
     {
-        List<Product> products = await _context.Products.ToListAsync();
+        List<Product> products = await _context.Products.Where(n => !n.IsDeleted)
+                                                        .ToListAsync();
 
         return products;
     }

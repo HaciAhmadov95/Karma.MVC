@@ -1,0 +1,70 @@
+﻿@model List<GetUserVM>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Slider - Table</h4>
+                    <div class="table-responsive">
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-secondary text-white" asp-controller="dashboard" asp-action="index">Go Back</a>
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        UserName
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Roles
+                                    </th>
+                                    <th>
+                                        Setting
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var userVm in @Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @userVm.User.UserName
+                                        </td>
+                                        <td>
+                                            @userVm.User.Email
+                                        </td>
+                                        <td>
+                                            <select data-userId="@userVm.User.Id" class="form-control role-changer">
+                                                @foreach (var role in userVm.AllRoles)
+                                                {
+                                                    if (role.ToString().ToLower() == userVm.UserRole.FirstOrDefault().ToString().ToLower())
+                                                    {
+                                                        <option selected value='@role.Name'>@role</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value='@role.Name'>@role</option>
+                                                    }
+                                                }
+
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a class="btn btn-danger text-white mx-1" asp-controller="user" asp-action="deleteuser" asp-route-id="@userVm.User.Id">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

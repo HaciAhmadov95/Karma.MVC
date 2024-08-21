@@ -16,7 +16,8 @@ public class SubscriberRepository : ISubscriberService
 
     public async Task<Subscriber> Get(int? id)
     {
-        Subscriber subscriber = await _context.Subscribers.Where(n => n.Id == id)
+        Subscriber subscriber = await _context.Subscribers.Where(n => !n.IsDeleted)
+                                                          .Where(n => n.Id == id)
                                                           .FirstOrDefaultAsync();
 
         return subscriber;
@@ -24,23 +25,30 @@ public class SubscriberRepository : ISubscriberService
 
     public async Task<List<Subscriber>> GetAll()
     {
-        List<Subscriber> subscribers = await _context.Subscribers.ToListAsync();
+        List<Subscriber> subscribers = await _context.Subscribers.Where(n => !n.IsDeleted)
+                                                                 .ToListAsync();
 
         return subscribers;
     }
 
-    public Task Create(Subscriber entity)
+    public async Task Create(Subscriber entity)
     {
-        throw new NotImplementedException();
-    }
-    public Task Update(int id, Subscriber entity)
-    {
-        throw new NotImplementedException();
+        await _context.Subscribers.AddAsync(entity);
     }
 
-    public Task Delete(int? id)
+    public async Task Update(int id, Subscriber entity)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        data.SubscriberEmail = entity.SubscriberEmail;
+        _context.Subscribers.Update(data);
+    }
+
+    public async Task Delete(int? id)
+    {
+        var data = await Get(id);
+
+        _context.Subscribers.Remove(data);
     }
 
     public async Task SaveChanges()

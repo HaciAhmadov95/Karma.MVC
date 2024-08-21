@@ -16,7 +16,8 @@ public class CommentRepository : ICommentService
 
     public async Task<Comment> Get(int? id)
     {
-        Comment comment = await _contex.Comments.Where(n => n.Id == id)
+        Comment comment = await _contex.Comments.Where(n => !n.IsDeleted)
+                                                .Where(n => n.Id == id)
                                                 .Include(n => n.AppUser)
                                                 .ThenInclude(n => n.Image)
                                                 .FirstOrDefaultAsync();
@@ -26,7 +27,8 @@ public class CommentRepository : ICommentService
 
     public async Task<List<Comment>> GetAll()
     {
-        List<Comment> comments = await _contex.Comments.Include(n => n.AppUser)
+        List<Comment> comments = await _contex.Comments.Where(n => !n.IsDeleted)
+                                                       .Include(n => n.AppUser)
                                                        .ThenInclude(n => n.Image)
                                                        .ToListAsync();
 

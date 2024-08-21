@@ -13,6 +13,9 @@ public class Blog : BaseEntity
     public string AppUserId { get; set; }
     public AppUser AppUser { get; set; }
 
+    public int BlogCategoryId { get; set; }
+    public BlogCategory BlogCategory { get; set; }
+
     [NotMapped]
     public IFormFile MainFile { get; set; }
 

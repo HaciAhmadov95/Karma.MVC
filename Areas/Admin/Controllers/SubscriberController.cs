@@ -26,6 +26,14 @@ public class SubscriberController : Controller
         return View(model: subscribers);
     }
 
+    public async Task<IActionResult> Delete(int? id)
+    {
+        await _subscriberService.Delete(id);
+        await _subscriberService.SaveChanges();
+
+        return RedirectToAction(nameof(Index));
+    }
+
     public IActionResult SendEmail()
     {
         return View();

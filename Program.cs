@@ -30,6 +30,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 builder.Services.AddScoped<IBlogService, BlogRepository>();
+builder.Services.AddScoped<IBlogCategoryService, BlogCategoryRepository>();
 builder.Services.AddScoped<IBrandService, BrandRepository>();
 builder.Services.AddScoped<ICartService, CartRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryRepository>();

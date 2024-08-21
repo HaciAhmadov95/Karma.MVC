@@ -1,5 +1,10 @@
 ﻿@model Blog
 
+@{
+    List<BlogCategory> blogCategories = ViewData["blogCategories"] as List<BlogCategory>;
+}
+
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 grid-margin stretch-card">
@@ -23,6 +28,20 @@
                         <div class="form-group">
                             <label asp-for="ImageFile">Image</label>
                             <input accept="image/*" class="form-control" asp-for="ImageFile">
+                        </div>
+                        <div class="form-group">
+                            <h4 class="my-4">Select Categories</h4>
+                            <div class="d-flex flex-wrap">
+                                @for (var i = 0; i < blogCategories.Count; i++)
+                                {
+
+                                    <div class="col-lg-6 form-group">
+                                        <input type="radio" value="@blogCategories[i].Name" asp-for="@Model.BlogCategory.Name" />
+                                        <label asp-for="@Model.BlogCategory">@blogCategories[i].Name</label>
+                                    </div>
+                                }
+
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2 text-white">Submit</button>
                         <button asp-controller="blog" asp-action="index" class="btn btn-secondary text-white">Cancel</button>
