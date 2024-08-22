@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\Karma.MVC.csproj": {}
+    "C:\\Users\\ACER PREDATOR\\OneDrive\\Desktop\\Main\\Karma.MVC\\Karma.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\Karma.MVC.csproj": {
+    "C:\\Users\\ACER PREDATOR\\OneDrive\\Desktop\\Main\\Karma.MVC\\Karma.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\Karma.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\ACER PREDATOR\\OneDrive\\Desktop\\Main\\Karma.MVC\\Karma.MVC.csproj",
         "projectName": "Karma.MVC",
-        "projectPath": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\Karma.MVC.csproj",
-        "packagesPath": "C:\\Users\\hsyna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\obj\\",
+        "projectPath": "C:\\Users\\ACER PREDATOR\\OneDrive\\Desktop\\Main\\Karma.MVC\\Karma.MVC.csproj",
+        "packagesPath": "C:\\Users\\ACER PREDATOR\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER PREDATOR\\OneDrive\\Desktop\\Main\\Karma.MVC\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hsyna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER PREDATOR\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -64,6 +67,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.12, )"
             }
           },
           "imports": [
@@ -85,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

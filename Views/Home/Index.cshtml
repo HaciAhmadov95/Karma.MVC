@@ -1,12 +1,12 @@
 ﻿@model HomeVM
 
-<!-- start banner Area -->
+
 <section class="banner-area">
 		<div class="container">
 			<div class="row fullscreen align-items-center justify-content-start">
 				<div class="col-lg-12">
 					<div class="active-banner-slider owl-carousel">
-							<!-- single-slide -->
+						
 					<div class="row single-slide">
 						<div class="col-lg-5">
 							<div class="banner-content">
@@ -27,7 +27,7 @@
 							</div>
 						</div>
 					</div>
-					<!-- single-slide -->
+					
 					<div class="row single-slide">
 						<div class="col-lg-5">
 							<div class="banner-content">
@@ -53,12 +53,11 @@
 			</div>
 		</div>
 	</section>
-<!-- End banner Area -->
-<!-- start features Area -->
+
 <section class="features-area section_gap">
 		<div class="container">
 			<div class="row features-inner">
-				<!-- single features -->
+				
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
@@ -68,7 +67,7 @@
 						<p>Free Shipping on all order</p>
 					</div>
 				</div>
-				<!-- single features -->
+				
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
@@ -78,7 +77,7 @@
 						<p>Free Shipping on all order</p>
 					</div>
 				</div>
-				<!-- single features -->
+				
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
@@ -88,7 +87,7 @@
 						<p>Free Shipping on all order</p>
 					</div>
 				</div>
-				<!-- single features -->
+				
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
@@ -101,10 +100,9 @@
 			</div>
 		</div>
 	</section>
-<!-- end features Area -->
-<!-- start product Area -->
+
 <section class="owl-carousel active-product-area section_gap">
-		<!-- single product slide-Nike -->
+		
 		<div class="single-product-slider">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -122,7 +120,7 @@
 				<div class="row">
 					@foreach (var product in Model.BrandsProducts.Where(n => n.BrandName == "Nike").Take(4).ToList())
 				{
-					<!-- single product -->
+					
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<img class="img-fluid" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
@@ -142,11 +140,13 @@
 									}
 								</div>
 								<div class="prd-bottom">
-
-									<a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@product.Id" class="social-info">
-										<span class="ti-bag"></span>
-										<p class="hover-text">add to bag</p>
-									</a>
+									<form asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id" method="post">
+										<button class="social-info" style="border:none;background:none">
+											<span class="ti-bag"></span>
+											<p class="hover-text">add to bag</p>
+										</button>
+									</form>
+									
 									<a asp-controller="Wishlist" asp-action="AddToWishlist" asp-route-id="@product.Id" class="social-info">
 										<span class="lnr lnr-heart"></span>
 										<p class="hover-text">Wishlist</p>
@@ -164,7 +164,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- single product slide-Adidas -->
+	
 		<div class="single-product-slider">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -182,7 +182,7 @@
 				<div class="row">
 				@foreach (var product in Model.BrandsProducts.Where(n => n.BrandName == "Adidas").Take(4).ToList())
 				{
-					<!-- single product -->
+				
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<img class="img-fluid" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
@@ -225,7 +225,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- single product slide-Puma -->
+	
 		<div class="single-product-slider">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -243,7 +243,7 @@
 				<div class="row">
 				@foreach (var product in Model.BrandsProducts.Where(n => n.BrandName == "Puma").Take(4).ToList())
 				{
-					<!-- single product -->
+					
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<img class="img-fluid" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
@@ -304,7 +304,7 @@
 				<div class="row">
 				@foreach (var product in Model.BrandsProducts.Where(n => n.BrandName == "New Balance").Take(4).ToList())
 				{
-					<!-- single product -->
+					
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<img class="img-fluid" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
@@ -348,8 +348,7 @@
 			</div>
 		</div>
 	</section>
-<!-- end product Area -->
-<!-- Start exclusive deal Area -->
+
 <section class="exclusive-deal-area">
 		<div class="container-fluid">
 			<div class="row justify-content-center align-items-center">
@@ -368,7 +367,7 @@
 					<div class="active-exclusive-product-slider">
 					@foreach (GetProductVM product in Model.BannerProducts)
 					{
-						<!-- single exclusive carousel -->
+					
 						<div class="single-exclusive-slider">
 							<img class="img-fluid" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
 							<div class="product-details">
@@ -400,31 +399,29 @@
 			</div>
 		</div>
 	</section>
-<!-- End exclusive deal Area -->
-<!-- Start brand Area -->
+
 <section class="brand-area section_gap">
 		<div class="container">
 			<div class="row">
-				<a class="col single-img" href="#">
+				<a class="col single-img" >
 					<img class="img-fluid d-block mx-auto" src="~/assets/img/brands2/Adidas-logo-768x432.jpg" alt="">
 				</a>
-				<a class="col single-img" href="#">
+				<a class="col single-img" >
 					<img class="img-fluid d-block mx-auto" src="~/assets/img/brands2/Kappa-logo-768x432.png" alt="">
 				</a>
-				<a class="col single-img" href="#">
+				<a class="col single-img" >
 					<img class="img-fluid d-block mx-auto" src="~/assets/img/brands2/Nike-logo-768x432.jpg" alt="">
 				</a>
-				<a class="col single-img" href="#">
+				<a class="col single-img" >
 					<img class="img-fluid d-block mx-auto" src="~/assets/img/brands2/New-Balance-Logo-768x432.png" alt="">
 				</a>
-				<a class="col single-img" href="#">
+				<a class="col single-img" >
 					<img class="img-fluid d-block mx-auto" src="~/assets/img/brands2/Puma-logo-1-768x432.jpg" alt="">
 				</a>
 			</div>
 		</div>
 	</section>
-<!-- End brand Area -->
-<!-- Start related-product Area -->
+
 <section class="related-product-area section_gap_bottom">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -461,4 +458,4 @@
 			</div>
 		</div>
 	</section>
-<!-- End related-product Area -->
+

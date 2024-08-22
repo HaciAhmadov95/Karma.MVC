@@ -17,23 +17,21 @@
 					<h6>Newsletter</h6>
 					<p>Stay update with our latest</p>
 					<div>
-						<form method="post" asp-controller="authentication" asp-action="createsubscriber">
+						@* <form method="post" asp-controller="authentication" asp-action="createsubscriber"> *@
 							<div class="d-flex flex-row">
 
-								<input asp-for="SubscriberEmail" class="form-control" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+								<input class="form-control" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
 									   type="email">
 
-								<button type="submit" class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+								<button type="submit" class="click-btn btn btn-default subscriber"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
 								<div style="position: absolute; left: -5000px;">
 									<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
 								</div>
 
-								<!-- <div class="col-lg-4 col-md-4">
-											<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-										</div>  -->
+								
 							</div>
 							<div class="info"></div>
-						</form>
+						@* </form> *@
 					</div>
 				</div>
 			</div>
@@ -67,9 +65,7 @@
 		</div>
 		<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
 			<p class="footer-text m-0">
-				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-				Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			
 			</p>
 		</div>
 	</div>

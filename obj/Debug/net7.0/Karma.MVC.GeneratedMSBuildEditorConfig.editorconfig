@@ -9,173 +9,179 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Karma.MVC
 build_property.RootNamespace = Karma.MVC
-build_property.ProjectDir = C:\Users\hsyna\Desktop\Haci\Karma.MVC\
+build_property.ProjectDir = C:\Users\ACER PREDATOR\OneDrive\Desktop\Main\Karma.MVC\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\hsyna\Desktop\Haci\Karma.MVC
+build_property.MSBuildProjectDirectory = C:\Users\ACER PREDATOR\OneDrive\Desktop\Main\Karma.MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Blog/Create.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Blog/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Blog/CreateCategory.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Blog/CreateCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xDcmVhdGVDYXRlZ29yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Blog/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Blog/Update.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Blog/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Brand/Create.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Brand/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Brand/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Brand/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Brand/Update.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Brand/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Category/Create.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Category/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Category/Update.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Category/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Color/Create.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Color/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Color/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Color/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Color/Update.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Color/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Dashboard/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Product/Create.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Product/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Product/MakeDiscount.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Product/MakeDiscount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxNYWtlRGlzY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Product/Update.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Product/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Shared/Components/AdminProfile/Default.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Shared/Components/AdminProfile/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcQWRtaW5Qcm9maWxlXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Shared/_Layout.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Subscriber/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Subscriber/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3Vic2NyaWJlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/Subscriber/SendEmail.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/Subscriber/SendEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3Vic2NyaWJlclxTZW5kRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/User/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Account/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Account/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Authentication/Login.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Authentication/CheckEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cQ2hlY2tFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Authentication/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Authentication/Register.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Authentication/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Blog/Detail.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Blog/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Blog/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Cart/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Contact/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Contact/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Home/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Shared/Components/Footer/Default.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Shared/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Shared/Components/Header/Default.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Shared/Components/Header/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSGVhZGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Shop/Detail.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Shop/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Shop/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Shop/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Wishlist/Index.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Wishlist/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2lzaGxpc3RcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/_ViewImports.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/_ViewStart.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hsyna/Desktop/Haci/Karma.MVC/Views/Shared/_Layout.cshtml]
+[C:/Users/ACER PREDATOR/OneDrive/Desktop/Main/Karma.MVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0q3hfy5ar2

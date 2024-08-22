@@ -1,6 +1,6 @@
 ﻿@model BlogVM
 
-<!-- Start Banner Area -->
+
 <section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -14,8 +14,7 @@
         </div>
     </div>
 </section>
-<!-- End Banner Area -->
-<!--================Blog Categorie Area =================-->
+
 <section class="blog_categorie_area">
     <div class="container">
         <div class="row">
@@ -64,8 +63,7 @@
         </div>
     </div>
 </section>
-<!--================Blog Categorie Area =================-->
-<!--================Blog Area =================-->
+
 <section class="blog_area">
     <div class="container">
         <div class="row">
@@ -82,7 +80,7 @@
                                     <ul class="blog_meta list">
                                         <li><a href="#">@blog.AppUser.Firstname @blog.AppUser.Lastname<i class="lnr lnr-user"></i></a></li>
                                         <li><a href="#">@blog.CreateDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.InvariantCulture)<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">@blog.Comments.Count Comments<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a href="#">@blog.Comments.Where(n => !n.IsDeleted).ToList().Count Comments<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -116,7 +114,7 @@
                                     <img class="w-100" src="~/assets/uploads/images/@blog.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="post">
                                 </div>
                                 <div class="col-8 media-body">
-                                    <a href="blog-details.html">
+                                    <a asp-action="Detail" asp-route-id="@blog.Id">
                                         <h3>@blog.Title</h3>
                                     </a>
                                     <p>02 Hours ago</p>
@@ -145,4 +143,3 @@
         </div>
     </div>
 </section>
-<!--================Blog Area =================-->

@@ -1,6 +1,6 @@
 ﻿@model Cart
 
-<!-- Start Banner Area -->
+
 <section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -14,8 +14,7 @@
         </div>
     </div>
 </section>
-<!-- End Banner Area -->
-<!--================Cart Area =================-->
+
 <section class="cart_area">
     <div class="container">
         <div class="cart_inner">
@@ -27,42 +26,48 @@
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Total</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach (Product product in Model.Products)
+                    <tbody id="cart-container">
+                        @foreach (CartProduct cartProduct in Model.CartProduct)
                         {
                             <tr>
                                 <td>
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img style="height: 50px; width: 50px; object-fit: cover" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
+                                            <img style="height: 50px; width: 50px; object-fit: cover" src="~/assets/uploads/images/@cartProduct.Product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
                                         </div>
                                         <div class="media-body">
-                                            <p>@product.Title</p>
+                                            <p>@cartProduct.Product.Title</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>$@product.Price</h5>
+                                    @if(cartProduct.Product.DiscountValue != 0)
+                                    {
+                                        <h5>$@Math.Round((decimal)(cartProduct.Product.Price - (cartProduct.Product.DiscountValue * cartProduct.Product.Price / 100)),2)</h5> <h5 class="l-through">$@cartProduct.Product.Price</h5>
+                                    }else
+                                    {
+                                        <h5>$@cartProduct.Product.Price</h5>
+                                    }
                                 </td>
                                 <td>
                                     <div class="product_count">
-                                        <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:"
-                                           class="input-text qty">
-                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                                            class="increase items-count" type="button">
-                                            <i class="lnr lnr-chevron-up"></i>
-                                        </button>
-                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                                            class="reduced items-count" type="button">
-                                            <i class="lnr lnr-chevron-down"></i>
-                                        </button>
+                                            <input class="change-quantity" productId="@cartProduct.Product.Id" type="text" id="sst" maxlength="12" value="@cartProduct.Quantity" title="Quantity:" class="input-text qty">
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>$@product.Price</h5>
+                                    @if(cartProduct.Product.DiscountValue != 0)
+                                    {
+                                        <h5>$@Math.Round((decimal)((cartProduct.Product.Price - (cartProduct.Product.DiscountValue * cartProduct.Product.Price / 100)) * cartProduct.Quantity),2)</h5>
+                                    }else
+                                    {
+                                        <h5>$@Math.Round((cartProduct.Product.Price * cartProduct.Quantity),2)</h5>
+
+                                    }
                                 </td>
+                                <td><a asp-controller="Cart" asp-action="DeleteFromCart" asp-route-id="@cartProduct.Product.Id" style="color: red; text-decoration: none;">x</a></td>
                             </tr>
                         }
 
@@ -75,7 +80,7 @@
                                 <h5>Subtotal</h5>
                             </td>
                             <td>
-                                <h5>$@Model.TotalPrice</h5>
+                                <h5>$@Math.Round(Model.TotalPrice,2)</h5>
                             </td>
                         </tr>
                         <tr class="shipping_area">
@@ -89,4 +94,4 @@
         </div>
     </div>
 </section>
-<!--================End Cart Area =================-->
+

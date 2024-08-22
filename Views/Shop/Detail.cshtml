@@ -1,6 +1,6 @@
 ﻿@model GetProductDetailVM
 
-<!-- Start Banner Area -->
+
 <section class="banner-area organic-breadcrumb">
 	<div class="container">
 		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -15,8 +15,7 @@
 		</div>
 	</div>
 </section>
-<!-- End Banner Area -->
-<!--================Single Product Area =================-->
+
 <div class="product_image_area">
 	<div class="container">
 		<div class="row s_product_inner">
@@ -47,18 +46,6 @@
 					<p>
 						@Model.Description
 					</p>
-					<div class="product_count">
-						<label for="qty">Quantity:</label>
-						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-								class="increase items-count" type="button">
-							<i class="lnr lnr-chevron-up"></i>
-						</button>
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp&amp) sst > 0 , result.value--;return false;"
-								class="reduced items-count" type="button">
-							<i class="lnr lnr-chevron-down"></i>
-						</button>
-					</div>
 					<div class="card_area d-flex align-items-center">
 						<a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Id" class="primary-btn" >Add to Cart</a>
 						<a asp-controller="Wishlist" asp-action="AddToWishlist" asp-route-id="@Model.Id"><i class="lnr lnr lnr-heart"></i></a>
@@ -68,8 +55,7 @@
 		</div>
 	</div>
 </div>
-<!--================End Single Product Area =================-->
-<!--================Product Description Area =================-->
+
 <section class="product_description_area">
 	<div class="container">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -213,4 +199,3 @@
 		</div>
 	</div>
 </section>
-<!--================End Product Description Area =================-->

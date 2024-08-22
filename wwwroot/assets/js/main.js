@@ -1,6 +1,24 @@
 
 $(document).ready(function(){
-	"use strict";
+    "use strict";
+
+    $(".subscriber").click(function () {
+        const email = $(this).prev().val();
+
+        $.ajax({
+            url: `/Authentication/CreateSubscriber?email=${email}`,
+            method: "get",
+            success: function () {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Subscribed!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        });
+    });
 
 	var window_width 	 = $(window).width(),
 	window_height 		 = window.innerHeight,

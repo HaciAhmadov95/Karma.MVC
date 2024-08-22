@@ -1,6 +1,6 @@
 ﻿@model Wishlist
 
-<!-- Start Banner Area -->
+
 <section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -14,8 +14,7 @@
         </div>
     </div>
 </section>
-<!-- End Banner Area -->
-<!--================Cart Area =================-->
+
 <section class="cart_area">
     <div class="container">
         <div class="cart_inner">
@@ -47,22 +46,25 @@
                                     @if (product.DiscountValue == 0)
                                     {
                                         <h5>$@product.Price</h5>
-                                    }else
+                                    }
+                                    else
                                     {
-                                        <h5>$@Math.Round((decimal)(product.Price - (product.Price * product.DiscountValue / 100)),2)</h5>
+                                        <h5>$@Math.Round((decimal)(product.Price - (product.Price * product.DiscountValue / 100)), 2)</h5>
                                     }
                                 </td>
                                 <td>
-                                <div class="add-bag d-flex align-items-center justify-content-center mt-0">
+                                    <div class="add-bag d-flex align-items-center justify-content-center mt-0">
                                         <a class="add-btn" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id"><span class="ti-bag"></span></a>
-									<span class="add-text text-uppercase">Add to Bag</span>
-								</div>
+                                        <span class="add-text text-uppercase">Add to Bag</span>
+                                    </div>
                                 </td>
                                 <td>
-                                <div class="add-bag d-flex align-items-center justify-content-center mt-0">
-                                    <a class="add-btn" asp-controller="Wishlist" asp-action="DeleteFromWishlist" asp-route-id="@product.Id"><span class="ti-minus"></span></a>
-                                    <span class="add-text text-uppercase">Remove</span>
-                                </div>
+                                    <div class="add-bag d-flex align-items-center justify-content-center mt-0">
+                                        <form asp-action="DeleteFromWishlist" asp-route-id="@product.Id" method="post">
+                                            <button class="add-btn"><span class="ti-minus"></span></button>
+                                        </form>
+                                        <span class="add-text text-uppercase">Remove</span>
+                                    </div>
                                 </td>
                             </tr>
                         }
@@ -72,4 +74,4 @@
         </div>
     </div>
 </section>
-<!--================End Cart Area =================-->
+

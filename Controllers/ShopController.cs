@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Karma.MVC.Helpers;
 using Karma.MVC.Models;
 using Karma.MVC.Models.Identity;
 using Karma.MVC.Services;
@@ -8,114 +9,134 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Karma.MVC.Controllers
 {
-	public class ShopController : Controller
-	{
-		private readonly IProductService _productService;
-		private readonly ICategoryService _categoryService;
-		private readonly IBrandService _brandService;
-		private readonly IColorService _colorService;
-		private readonly UserManager<AppUser> _userManager;
-		private readonly ICommentService _commentService;
-		private readonly IImageService _imageService;
-		private readonly IMapper _mapper;
+    public class ShopController : Controller
+    {
+        private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
+        private readonly IBrandService _brandService;
+        private readonly IColorService _colorService;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly ICommentService _commentService;
+        private readonly IImageService _imageService;
+        private readonly IMapper _mapper;
 
-		public ShopController(IProductService productService, IMapper mapper, ICategoryService categoryService, IBrandService brandService, IColorService colorService, UserManager<AppUser> userManager, ICommentService commentService, IImageService imageService)
-		{
-			_productService = productService;
-			_mapper = mapper;
-			_categoryService = categoryService;
-			_brandService = brandService;
-			_colorService = colorService;
-			_userManager = userManager;
-			_commentService = commentService;
-			_imageService = imageService;
-		}
+        public ShopController(IProductService productService, IMapper mapper, ICategoryService categoryService, IBrandService brandService, IColorService colorService, UserManager<AppUser> userManager, ICommentService commentService, IImageService imageService)
+        {
+            _productService = productService;
+            _mapper = mapper;
+            _categoryService = categoryService;
+            _brandService = brandService;
+            _colorService = colorService;
+            _userManager = userManager;
+            _commentService = commentService;
+            _imageService = imageService;
+        }
 
-		public async Task<IActionResult> Index()
-		{
+        public async Task<IActionResult> Index(ShopVM request)
+        {
+            List<GetProductVM> productsVM;
+            IEnumerable<Product> products = await _productService.GetAll();
+            Paginate<Product>? paginateProducts = null;
 
-			List<Product> products = await _productService.GetAll();
-			List<GetProductVM> productsVM = _mapper.Map<List<GetProductVM>>(products.Take(6).ToList());
-			List<Brand> brands = await _brandService.GetAll();
-			List<Category> categories = await _categoryService.GetAll();
-			List<Color> colors = await _colorService.GetAll();
+            if (request.SearchText != null)
+            {
+                products = await _productService.SearchProduct(request.SearchText);
+            }
+            else
+            {
+                //productsVM = _mapper.Map<List<GetProductVM>>(products.Take(6).ToList());
+                products = products.Skip((request.Page * request.Take) - request.Take).Take(request.Take);
+                paginateProducts = new(products, request.Page, await _productService.GetPageCount(request.Take));
+            }
 
-			ViewData["CurrentPage"] = 1;
-			ViewData["TotalPages"] = products.Count < 1 ? 6 : (int)Math.Ceiling((decimal)products.Count / 6);
+            List<Brand> brands = await _brandService.GetAll();
+            List<Category> categories = await _categoryService.GetAll();
+            List<Color> colors = await _colorService.GetAll();
 
-			ShopVM shopVM = new()
-			{
-				GetProductVMs = productsVM,
-				Brands = brands,
-				Categories = categories,
-				Colors = colors,
-			};
+            //ViewData["CurrentPage"] = 1;
+            //ViewData["TotalPages"] = productsVM.Count < 1 ? 6 : (int)Math.Ceiling((decimal)productsVM.Count / 6);
 
-			return View(model: shopVM);
-		}
+            ShopVM shopVM = new()
+            {
+                Products = products,
+                PaginateProducts = paginateProducts,
+                Brands = brands,
+                Categories = categories,
+                Colors = colors,
+            };
 
-		public async Task<IActionResult> Detail(int id)
-		{
-			Product product = await _productService.Get(id);
-			GetProductDetailVM productDetailVM = _mapper.Map<GetProductDetailVM>(product);
+            return View(model: shopVM);
+        }
 
-			List<Comment> comments = new();
-			if (productDetailVM.Comments is not null)
-			{
-				foreach (var comment in productDetailVM.Comments)
-				{
-					comment.AppUser = await _userManager.FindByIdAsync(comment.AppUserId);
-					if (comment.AppUser.ImageId is not null)
-					{
-						comment.AppUser.Image = await _imageService.Get(comment.AppUser.ImageId);
-					}
-					comments.Add(comment);
-				}
-			}
+        public async Task<IActionResult> Detail(int id)
+        {
+            Product product = await _productService.Get(id);
+            GetProductDetailVM productDetailVM = _mapper.Map<GetProductDetailVM>(product);
 
-			return View(model: productDetailVM);
-		}
+            List<Comment> comments = new();
+            if (productDetailVM.Comments is not null)
+            {
+                foreach (var comment in productDetailVM.Comments)
+                {
+                    comment.AppUser = await _userManager.FindByIdAsync(comment.AppUserId);
+                    if (comment.AppUser.ImageId is not null)
+                    {
+                        comment.AppUser.Image = await _imageService.Get(comment.AppUser.ImageId);
+                    }
+                    comments.Add(comment);
+                }
+            }
 
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> AddComment(GetProductDetailVM vm, int? id)
-		{
-			//if (!ModelState.IsValid)
-			//{
-			//    return RedirectToAction(nameof(Detail), vm);
-			//}
+            return View(model: productDetailVM);
+        }
 
-			var comment = vm.Comment;
-			comment.AppUser = await _userManager.GetUserAsync(User);
-			var product = await _productService.Get(id);
-			comment.Product = product;
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddComment(GetProductDetailVM vm, int? id)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return RedirectToAction(nameof(Detail), vm);
+            //}
 
-			await _commentService.Create(comment);
-			await _commentService.SaveChanges();
+            var comment = vm.Comment;
+            comment.AppUser = await _userManager.GetUserAsync(User);
+            var product = await _productService.Get(id);
+            comment.Product = product;
 
-			return RedirectToAction(nameof(Detail), vm);
-		}
+            await _commentService.Create(comment);
+            await _commentService.SaveChanges();
 
-		public async Task<IActionResult> PagedData(int pageNumber = 1, int pageSize = 1)
-		{
+            return RedirectToAction(nameof(Detail), vm);
+        }
 
-			List<Product> product = await _productService.GetPagedData(pageNumber, pageSize);
+        public async Task<IActionResult> PagedData(int pageNumber = 1, int pageSize = 1)
+        {
 
-			return Json(product);
-		}
+            List<Product> product = await _productService.GetPagedData(pageNumber, pageSize);
 
-		public async Task<IActionResult> FilterCategory(int filterId)
-		{
-			List<Product> products = await _productService.FilterDataCategory(filterId);
+            return Json(product);
+        }
 
-			return Json(products);
-		}
+        public async Task<IActionResult> FilterCategory(int filterId)
+        {
+            List<GetProductVM> products = await _productService.FilterDataCategory(filterId);
 
-		public async Task<IActionResult> FilterBrand(int filterId)
-		{
-			List<Product> products = await _productService.FilterDataBrand(filterId);
+            return Json(products);
+        }
 
-			return Json(products);
-		}
-	}
+        public async Task<IActionResult> FilterBrand(int filterId)
+        {
+            List<GetProductVM> products = await _productService.FilterDataBrand(filterId);
+
+            return Json(products);
+        }
+
+        public async Task<IActionResult> FilterColor(int filterId)
+        {
+            List<GetProductVM> products = await _productService.FilterDataColor(filterId);
+
+            return Json(products);
+        }
+    }
 }

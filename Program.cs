@@ -8,25 +8,24 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+	options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
 builder.Services.AddIdentity<AppUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
+				.AddEntityFrameworkStores<AppDbContext>()
+				.AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
-    options.Lockout.MaxFailedAccessAttempts = 3;
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
-    options.Password.RequiredLength = 8;
-    options.User.RequireUniqueEmail = true;
-    options.SignIn.RequireConfirmedEmail = true;
+	options.Lockout.MaxFailedAccessAttempts = 3;
+	options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+	options.Password.RequiredLength = 8;
+	options.User.RequireUniqueEmail = true;
+	options.SignIn.RequireConfirmedEmail = true;
 });
 
 builder.Services.AddScoped<IBlogService, BlogRepository>();
@@ -40,24 +39,25 @@ builder.Services.AddScoped<IProductService, ProductRepository>();
 builder.Services.AddScoped<ISubscriberService, SubscriberRepository>();
 builder.Services.AddScoped<IWishlistService, WishlistRepository>();
 builder.Services.AddScoped<IColorService, ColorRepository>();
+builder.Services.AddScoped<ICartProductService, CartProductRepository>();
 builder.Services.AddScoped<SettingRepository>();
 
 builder.Services.AddAutoMapper(typeof(Mapper));
 
 builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-    });
+	.AddJsonOptions(options =>
+	{
+		options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+	});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+	app.UseExceptionHandler("/Home/Error");
+	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+	app.UseHsts();
 }
 
 app.UseHttpsRedirection();
@@ -71,11 +71,11 @@ app.UseAuthorization();
 app.UseStaticFiles();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+	name: "default",
+	pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+	name: "default",
+	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

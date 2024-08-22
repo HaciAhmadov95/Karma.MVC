@@ -7,5 +7,5 @@ public class Cart : BaseEntity
 {
     public double TotalPrice { get; set; }
     public AppUser? AppUser { get; set; }
-    public ICollection<Product>? Products { get; set; }
+    public ICollection<CartProduct>? CartProduct { get; set; }
 }

@@ -1,8 +1,9 @@
-﻿@model Product
+﻿@model CreateProductVM
 
 @{
     var categories = (List<Category>) ViewData["Categories"];
-    var brands = (List<Brand>)ViewData["Brands"];
+    var brands = (List<Brand>) ViewData["Brands"];
+    var colors = (List<Color>) ViewData["Colors"];
 }
 
 <div class="container mt-5">
@@ -11,34 +12,39 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Product - Create</h4>
-                    <div asp-validation-summary="All" class="text-danger"></div>
                     <form enctype="multipart/form-data" method="post" class="forms-sample">
                         <div class="form-group">
                             <label asp-for="Title">Title</label>
                             <input asp-for="Title" class="form-control" placeholder="Create Title">
+                            <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Description">Description</label>
                             <input asp-for="Description" class="form-control" placeholder="Create Description">
+                            <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Price">Price</label>
                             <input asp-for="Price" class="form-control" placeholder="Add Price" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
                         </div>
                         <div class="d-flex justify-content-between">
                             <div class="form-group">
                             <label asp-for="Width">Width</label>
                             <input asp-for="Width" class="form-control" placeholder="Width.." />
+                                <span asp-validation-for="Width" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Height">Height</label>
                                 <input asp-for="Height" class="form-control" placeholder="Heigh..." />
+                                <span asp-validation-for="Height" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
                             <div class="form-group">
                                 <label asp-for="Depth">Depth</label>
                                 <input asp-for="Depth" class="form-control" placeholder="Depth..." />
+                                <span asp-validation-for="Depth" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Weight">Weight</label>
@@ -75,6 +81,14 @@
                                }
                             </select>
                         </div>
+                        @for (var i = 0; i < colors.Count; i++)
+                        {
+                            <div class="form-group">
+                                <input type="checkbox" asp-for="@Model.Colors[i].IsSelected" />
+                                <label asp-for="@Model.Colors[i].IsSelected">@colors[i].Name</label>
+                                <input type="hidden" asp-for="@colors[i].Id" />
+                            </div>
+                        }
                         <button type="submit" class="btn btn-primary mr-2 text-white">Submit</button>
                         <button asp-controller="product" asp-action="index" class="btn btn-secondary text-white">Cancel</button>
                     </form>

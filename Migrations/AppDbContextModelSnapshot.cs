@@ -22,21 +22,6 @@ namespace Karma.MVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CartProduct", b =>
-                {
-                    b.Property<int>("CartsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CartsId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CartProduct");
-                });
-
             modelBuilder.Entity("ColorProduct", b =>
                 {
                     b.Property<int>("ColorsId")
@@ -50,6 +35,38 @@ namespace Karma.MVC.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("ColorProduct");
+                });
+
+            modelBuilder.Entity("Karma.MVC.Models.AdminMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("AdminMessages");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Blog", b =>
@@ -168,6 +185,32 @@ namespace Karma.MVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("Karma.MVC.Models.CartProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CartProduct");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Category", b =>
@@ -671,21 +714,6 @@ namespace Karma.MVC.Migrations
                     b.ToTable("ProductWishlist");
                 });
 
-            modelBuilder.Entity("CartProduct", b =>
-                {
-                    b.HasOne("Karma.MVC.Models.Cart", null)
-                        .WithMany()
-                        .HasForeignKey("CartsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Karma.MVC.Models.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ColorProduct", b =>
                 {
                     b.HasOne("Karma.MVC.Models.Color", null)
@@ -699,6 +727,17 @@ namespace Karma.MVC.Migrations
                         .HasForeignKey("ProductsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Karma.MVC.Models.AdminMessage", b =>
+                {
+                    b.HasOne("Karma.MVC.Models.Identity.AppUser", "AppUser")
+                        .WithMany("Messages")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Blog", b =>
@@ -718,6 +757,25 @@ namespace Karma.MVC.Migrations
                     b.Navigation("AppUser");
 
                     b.Navigation("BlogCategory");
+                });
+
+            modelBuilder.Entity("Karma.MVC.Models.CartProduct", b =>
+                {
+                    b.HasOne("Karma.MVC.Models.Cart", "Cart")
+                        .WithMany("CartProduct")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Karma.MVC.Models.Product", "Product")
+                        .WithMany("CartProduct")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Comment", b =>
@@ -894,6 +952,8 @@ namespace Karma.MVC.Migrations
             modelBuilder.Entity("Karma.MVC.Models.Cart", b =>
                 {
                     b.Navigation("AppUser");
+
+                    b.Navigation("CartProduct");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Category", b =>
@@ -905,6 +965,8 @@ namespace Karma.MVC.Migrations
                 {
                     b.Navigation("Comments");
 
+                    b.Navigation("Messages");
+
                     b.Navigation("Products");
                 });
 
@@ -915,6 +977,8 @@ namespace Karma.MVC.Migrations
 
             modelBuilder.Entity("Karma.MVC.Models.Product", b =>
                 {
+                    b.Navigation("CartProduct");
+
                     b.Navigation("Comments");
 
                     b.Navigation("Images");

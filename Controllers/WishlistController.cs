@@ -6,90 +6,99 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Karma.MVC.Controllers
 {
-	public class WishlistController : Controller
-	{
-		private readonly IWishlistService _wishlistService;
-		private readonly IProductService _productService;
-		private readonly UserManager<AppUser> _userManager;
+    public class WishlistController : Controller
+    {
+        private readonly IWishlistService _wishlistService;
+        private readonly IProductService _productService;
+        private readonly UserManager<AppUser> _userManager;
 
-		public WishlistController(UserManager<AppUser> userManager, IProductService productService, IWishlistService wishlistService)
-		{
-			_userManager = userManager;
-			_productService = productService;
-			_wishlistService = wishlistService;
-		}
+        public WishlistController(UserManager<AppUser> userManager, IProductService productService, IWishlistService wishlistService)
+        {
+            _userManager = userManager;
+            _productService = productService;
+            _wishlistService = wishlistService;
+        }
 
-		public async Task<IActionResult> Index()
-		{
-			if (!User.Identity.IsAuthenticated)
-			{
-				return RedirectToAction("Login", "Authentication");
-			}
+        public async Task<IActionResult> Index()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
 
-			var user = await _userManager.GetUserAsync(User);
-			var wishlist = await _wishlistService.Get(user.WishlistId);
+            var user = await _userManager.GetUserAsync(User);
+            var wishlist = await _wishlistService.Get(user.WishlistId);
 
-			return View(model: wishlist);
-		}
+            return View(model: wishlist);
+        }
 
-		public async Task<IActionResult> AddToWishlist(int? id)
-		{
-			if (id is null)
-			{
-				throw new ArgumentNullException(nameof(id));
-			}
+        public async Task<IActionResult> AddToWishlist(int? id)
+        {
+            if (id is null)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
 
-			if (!User.Identity.IsAuthenticated)
-			{
-				return RedirectToAction("Login", "Authentication");
-			}
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
 
-			List<Product> products = new();
+            List<Product> products = new();
 
-			var user = await _userManager.GetUserAsync(User);
-			var wishlist = await _wishlistService.Get(user.WishlistId);
+            var user = await _userManager.GetUserAsync(User);
+            var wishlist = await _wishlistService.Get(user.WishlistId);
 
-			products.AddRange(wishlist.Products);
-			products.Add(await _productService.Get(id));
-			wishlist.Products = products;
-			await _wishlistService.Update(wishlist.Id, wishlist);
-			await _wishlistService.SaveChanges();
+            foreach (var product in wishlist.Products)
+            {
+                if (product.Id == id)
+                {
+                    return RedirectToAction("Index", wishlist);
+                }
+            }
 
-			return View("Index", wishlist);
-		}
+            products.AddRange(wishlist.Products);
+            products.Add(await _productService.Get(id));
+            wishlist.Products = products;
+            await _wishlistService.Update(wishlist.Id, wishlist);
+            await _wishlistService.SaveChanges();
 
-		public async Task<IActionResult> DeleteFromWishlist(int? id)
-		{
-			if (id is null)
-			{
-				throw new ArgumentNullException(nameof(id));
-			}
+            return RedirectToAction("Index", wishlist);
+        }
 
-			if (!User.Identity.IsAuthenticated)
-			{
-				return RedirectToAction("Login", "Authentication");
-			}
+        [HttpPost]
+        public async Task<IActionResult> DeleteFromWishlist(int? id)
+        {
+            if (id is null)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
 
-			var user = await _userManager.GetUserAsync(User);
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
 
-			var wishlist = await _wishlistService.Get(user.WishlistId);
+            var user = await _userManager.GetUserAsync(User);
 
-			List<Product> products = new();
+            var wishlist = await _wishlistService.Get(user.WishlistId);
 
-			foreach (var product in wishlist.Products)
-			{
-				if (product.Id != id)
-				{
-					products.Add(product);
-				}
-			}
+            List<Product> products = new();
 
-			wishlist.Products = products;
+            foreach (var product in wishlist.Products)
+            {
+                if (product.Id != id)
+                {
+                    products.Add(product);
+                }
+            }
 
-			await _wishlistService.Update(wishlist.Id, wishlist);
-			await _wishlistService.SaveChanges();
+            wishlist.Products = products;
 
-			return View("Index", wishlist);
-		}
-	}
+            await _wishlistService.Update(wishlist.Id, wishlist);
+            await _wishlistService.SaveChanges();
+
+            return RedirectToAction("Index", wishlist);
+        }
+    }
 }

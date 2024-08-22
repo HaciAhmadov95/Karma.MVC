@@ -3,7 +3,7 @@
 <section class="main-section team" style="margin: 200px 0 100px 0; border-radius: 15px;">
     <div class="container">
         <h2>Account Settings</h2>
-            <!-- Profile Photo Section -->
+           
            <form class="row" asp-controller="Account" asp-action="UpdateProfile" enctype="multipart/form-data">
             <div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
                 <div class="team-leader-box">
@@ -24,21 +24,20 @@
                 </div>
             </div>
 
-            <!-- Profile Information Section -->
             <div class="col-lg-8 col-sm-6 wow fadeInUp delay-05s">
                 <div class="team-leader-box">
                     <div class="team-leader-text">
-                            <!-- First Name -->
+                           
                             <div class="form-group">
                             <label asp-for="Firstname">First Name</label>
                                 <input asp-for="Firstname" type="text" id="firstName" class="form-control" value="@Model.Firstname">
                             </div>
-                            <!-- Last Name -->
+                           
                             <div class="form-group">
                             <label asp-for="Lastname">Last Name</label>
                                 <input asp-for="Lastname" type="text" id="lastName" class="form-control" value="@Model.Lastname">
                             </div>
-                            <!-- Save Button -->
+                          
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>

@@ -1,6 +1,4 @@
-﻿using Karma.MVC.Models;
-
-namespace Karma.MVC.ViewModels;
+﻿namespace Karma.MVC.ViewModels;
 
 public class GetProductVM
 {
@@ -10,5 +8,6 @@ public class GetProductVM
     public double Price { get; set; }
     public double DiscountValue { get; set; }
     public string BrandName { get; set; }
-    public List<Image> Images { get; set; }
+
+    public List<ImageVM> Images { get; set; }
 }

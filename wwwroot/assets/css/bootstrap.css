@@ -133,6 +133,12 @@ ul ul {
     margin-bottom: 0
 }
 
+.l-through {
+    text-decoration: line-through;
+    color: #cccccc !important;
+    margin-bottom: 0;
+}
+
 dt {
     font-weight: 700
 }

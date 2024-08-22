@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Karma.MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+724f2b41bb8312f49f9ee8089b451371b02e0ebf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Karma.MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Karma.MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -23,16 +23,13 @@ public class CreateProductVM
     [Required]
     public bool QualityChecking { get; set; }
 
-    [NotMapped]
+    [NotMapped, Required]
     public IFormFile MainImage { get; set; }
-    [NotMapped]
+    [NotMapped, Required]
     public List<IFormFile> ImageFile { get; set; }
 
-    public ICollection<Comment> Comments { get; set; }
-    public ICollection<Wishlist> Wishlists { get; set; }
     public ICollection<Image> Images { get; set; }
-    public ICollection<Cart> Carts { get; set; }
-    public ICollection<Color> Colors { get; set; }
+    public List<Color> Colors { get; set; }
 
     public int CategoryId { get; set; }
     public Category Category { get; set; }
