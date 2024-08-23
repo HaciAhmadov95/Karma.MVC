@@ -789,32 +789,6 @@
 								</div>
 							</div>
 						</div>
-						<!-- single exclusive carousel -->
-						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
-							<div class="product-details">
-								<div class="price">
-									@if (product.DiscountValue != 0)
-									{
-										<h6>$@Math.Round((product.Price - (product.Price * @product.DiscountValue / 100)),2)</h6>
-										<h6 class="l-through">$@product.Price</h6>
-									}
-									else
-									{
-										<h6>$@product.Price</h6>
-									}
-
-								</div>
-								<h4>
-									addidas New Hammer sole
-									for Sports person
-								</h4>
-								<div class="add-bag d-flex align-items-center justify-content-center">
-									<a class="add-btn" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id"><span class="ti-bag"></span></a>
-									<span class="add-text text-uppercase">Add to Bag</span>
-								</div>
-							</div>
-						</div>
 					}
 					</div>
 				</div>
