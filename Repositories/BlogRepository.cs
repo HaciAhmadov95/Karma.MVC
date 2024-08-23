@@ -29,6 +29,8 @@ public class BlogRepository : IBlogService
                                         .Where(n => n.Id == id)
                                         .Include(n => n.Images)
                                         .Include(n => n.BlogCategory)
+                                        .Include(n => n.AppUser)
+                                        .ThenInclude(n => n.Image)
                                         .Include(n => n.Comments)
                                         .FirstOrDefaultAsync();
 
@@ -40,6 +42,7 @@ public class BlogRepository : IBlogService
         List<Blog> blogs = await _context.Blogs.Where(n => !n.IsDeleted)
                                                .Include(n => n.Images)
                                                .Include(n => n.BlogCategory)
+                                               .Include(n => n.AppUser)
                                                .Include(n => n.Comments)
                                                .ToListAsync();
 

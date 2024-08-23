@@ -1,7 +1,8 @@
 ﻿@model Product
 
 @{
-    var categories = (List<Category>)ViewData["Categories"];
+    var categories = (List<Category>) ViewData["Categories"];
+    var brands = (List<Brand>)ViewData["Brands"];
 }
 
 <div class="container mt-5">
@@ -21,8 +22,32 @@
                             <input asp-for="Description" class="form-control" placeholder="Create Description">
                         </div>
                         <div class="form-group">
-                            <label asp-for="Price">Price(For Month)</label>
+                            <label asp-for="Price">Price</label>
                             <input asp-for="Price" class="form-control" placeholder="Add Price" />
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="form-group">
+                            <label asp-for="Width">Width</label>
+                            <input asp-for="Width" class="form-control" placeholder="Width.." />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Height">Height</label>
+                                <input asp-for="Height" class="form-control" placeholder="Heigh..." />
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="form-group">
+                                <label asp-for="Depth">Depth</label>
+                                <input asp-for="Depth" class="form-control" placeholder="Depth..." />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Weight">Weight</label>
+                                <input asp-for="Weight" class="form-control" placeholder="Weight..." />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="QualityChecking">Checked from quality test</label>
+                            <input type="checkbox" asp-for="QualityChecking">
                         </div>
                         <div class="form-group">
                             <label asp-for="MainImage">Main Image</label>
@@ -33,18 +58,22 @@
                             <input accept="image/*" class="form-control" asp-for="ImageFile">
                         </div>
                         <div class="form-group">
-                            <h4 class="my-4">Select Categories</h4>
-                            <div class="d-flex flex-wrap">
-                                @for (var i = 0; i < categories.Count; i++)
-                                {
-                                    
-                                    <div class="col-lg-6 form-group">
-                                        <input type="checkbox" asp-for="@Model.Category" />
-                                        <label asp-for="@Model.Category">@categories[i].Name</label>
-                                        <input type="hidden" asp-for="@categories[i].Id" />
-                                    </div>
-                                }
-                            </div>
+                            <label asp-for="CategoryId">Select Category</label>
+                            <select class="form-control form-control-sm" asp-for="CategoryId">
+                                @foreach (var category in categories)
+                               {
+                                    <option value="@category.Id">@category.Name</option>  
+                               }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BrandId">Select Brand</label>
+                            <select class="form-control form-control-sm" asp-for="BrandId">
+                                @foreach (var brand in brands)
+                               {
+                                    <option value="@brand.Id">@brand.Name</option>  
+                               }
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2 text-white">Submit</button>
                         <button asp-controller="product" asp-action="index" class="btn btn-secondary text-white">Cancel</button>

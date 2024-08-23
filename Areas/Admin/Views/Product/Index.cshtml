@@ -53,11 +53,17 @@
                                             @product.Title
                                         </td>
                                         <td>
-                                            $ @product.Price
-                                        </td>
+                                                @if(product.DiscountValue == 0)
+                                                {
+                                                    <span>$ @product.Price</span>
+                                                }else
+                                                {
+                                                    <span>$@Math.Round((decimal)(product.Price - (product.Price * product.DiscountValue / 100)),2)</span>
+                                                }
+                                            </td>
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-primary text-white mx-1" asp-controller="product" asp-action="detail" asp-route-id="@product.Id">Detail</a>
+                                                <a class="btn btn-primary text-white mx-1" asp-controller="product" asp-action="makediscount" asp-route-id="@product.Id">Discount</a>
                                                 <a class="btn btn-warning text-white mx-1" asp-controller="product" asp-action="update" asp-route-id="@product.Id">Update</a>
                                                 <a class="btn btn-danger text-white mx-1" asp-controller="product" asp-action="delete" asp-route-id="@product.Id">Delete</a>
                                             </div>

@@ -1,1 +1,75 @@
-﻿
+﻿@model Wishlist
+
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Wishlist</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Cart Area =================-->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Product product in Model.Products)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <img style="height: 50px; width: 50px; object-fit: cover" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <p>@product.Title</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    @if (product.DiscountValue == 0)
+                                    {
+                                        <h5>$@product.Price</h5>
+                                    }else
+                                    {
+                                        <h5>$@Math.Round((decimal)(product.Price - (product.Price * product.DiscountValue / 100)),2)</h5>
+                                    }
+                                </td>
+                                <td>
+                                <div class="add-bag d-flex align-items-center justify-content-center mt-0">
+                                        <a class="add-btn" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id"><span class="ti-bag"></span></a>
+									<span class="add-text text-uppercase">Add to Bag</span>
+								</div>
+                                </td>
+                                <td>
+                                <div class="add-bag d-flex align-items-center justify-content-center mt-0">
+                                    <a class="add-btn" asp-controller="Wishlist" asp-action="DeleteFromWishlist" asp-route-id="@product.Id"><span class="ti-minus"></span></a>
+                                    <span class="add-text text-uppercase">Remove</span>
+                                </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Cart Area =================-->

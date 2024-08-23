@@ -31,6 +31,7 @@
 		<div class="col-lg-12">
 			<div class="login_form_inner">
 				<h3>Register</h3>
+				<div asp-validation-summary="All" class="text-danger"></div>
 				<form asp-controller ="Authentication" asp-action="Register" class="row login_form" method="post" id="contactForm">
 					<div class="col-md-12 form-group">
 						<input asp-for="Firstname" type="text" class="form-control" id="name" placeholder="Firstname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Firstname'">

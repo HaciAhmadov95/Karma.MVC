@@ -7,4 +7,5 @@ public class Brand : BaseEntity
 {
     [Required]
     public string Name { get; set; }
+    public ICollection<Product>? Products { get; set; }
 }

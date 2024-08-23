@@ -6,48 +6,49 @@
 			<div class="row fullscreen align-items-center justify-content-start">
 				<div class="col-lg-12">
 					<div class="active-banner-slider owl-carousel">
-						<!-- single-slide -->
-						<div class="row single-slide align-items-center d-flex">
-							<div class="col-lg-5 col-md-6">
-								<div class="banner-content">
-									<h1>Nike New <br>Collection!</h1>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-									</p>
-									<div class="add-bag d-flex align-items-center">
-										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-										<span class="add-text text-uppercase">Add to Bag</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7">
-								<div class="banner-img">
-									<img class="img-fluid" src="~/assets/img/banner/banner-img.png" alt="">
+						
+							<!-- single-slide -->
+					<div class="row single-slide">
+						<div class="col-lg-5">
+							<div class="banner-content">
+								<h1>Nike New <br>Collection!</h1>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+								</p>
+								<div class="add-bag d-flex align-items-center">
+									<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
 							</div>
 						</div>
-						<!-- single-slide -->
-						<div class="row single-slide">
-							<div class="col-lg-5">
-								<div class="banner-content">
-									<h1>Nike New <br>Collection!</h1>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-									</p>
-									<div class="add-bag d-flex align-items-center">
-										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-										<span class="add-text text-uppercase">Add to Bag</span>
-									</div>
-								</div>
+						<div class="col-lg-7">
+							<div class="banner-img">
+								<img class="img-fluid" src="~/assets/img/banner/banner-img.png" alt="">
 							</div>
-							<div class="col-lg-7">
-								<div class="banner-img">
-									<img class="img-fluid" src="~/assets/img/banner/banner-img.png" alt="">
+						</div>
+					</div>
+					<!-- single-slide -->
+					<div class="row single-slide">
+						<div class="col-lg-5">
+							<div class="banner-content">
+								<h1>Nike New <br>Collection!</h1>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+								</p>
+								<div class="add-bag d-flex align-items-center">
+									<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
 							</div>
 						</div>
+						<div class="col-lg-7">
+							<div class="banner-img">
+								<img class="img-fluid" src="~/assets/img/banner/banner-img.png" alt="">
+							</div>
+						</div>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -756,46 +757,65 @@
 						<div class="col-lg-12">
 						</div>
 					</div>
-					<a href="" class="primary-btn">Shop Now</a>
+					<a asp-controller="Shop" asp-action="Index" class="primary-btn">Shop Now</a>
 				</div>
 				<div class="col-lg-6 no-padding exclusive-right">
 					<div class="active-exclusive-product-slider">
+					@foreach (GetProductVM product in Model.BannerProducts)
+					{
 						<!-- single exclusive carousel -->
 						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="~/assets/img/product/Final-Project Images/Nike/nike-black/JORDAN+TRUE1+FLIGHT.png" alt="">
+							<img class="img-fluid" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
 							<div class="product-details">
 								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
+									@if (product.DiscountValue != 0)
+									{
+										<h6>$@Math.Round((product.Price - (product.Price * @product.DiscountValue / 100)),2)</h6>
+										<h6 class="l-through">$@product.Price</h6>
+									}
+									else
+									{
+										<h6>$@product.Price</h6>
+									}
+
 								</div>
 								<h4>
 									addidas New Hammer sole
 									for Sports person
 								</h4>
 								<div class="add-bag d-flex align-items-center justify-content-center">
-									<a class="add-btn" href=""><span class="ti-bag"></span></a>
+									<a class="add-btn" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id"><span class="ti-bag"></span></a>
 									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
 							</div>
 						</div>
 						<!-- single exclusive carousel -->
 						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="~/assets/img/product/Final-Project Images/Adidas/adidas-blue/Matchbreak1_Super_Shoes_Blue_IF2050_01_standard.avif" alt="">
+							<img class="img-fluid" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
 							<div class="product-details">
 								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
+									@if (product.DiscountValue != 0)
+									{
+										<h6>$@Math.Round((product.Price - (product.Price * @product.DiscountValue / 100)),2)</h6>
+										<h6 class="l-through">$@product.Price</h6>
+									}
+									else
+									{
+										<h6>$@product.Price</h6>
+									}
+
 								</div>
 								<h4>
 									addidas New Hammer sole
 									for Sports person
 								</h4>
 								<div class="add-bag d-flex align-items-center justify-content-center">
-									<a class="add-btn" href=""><span class="ti-bag"></span></a>
+									<a class="add-btn" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id"><span class="ti-bag"></span></a>
 									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
 							</div>
 						</div>
+					}
 					</div>
 				</div>
 			</div>
@@ -840,123 +860,23 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-9">
+				<div class="col-lg-12">
 					<div class="row">
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+					@foreach(GetProductVM product in Model.DiscountedProducts)
+					{
+						<div class="col-lg-3 col-md-4 col-sm-6 mb-20">
 							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r1.jpg" alt=""></a>
+								<a asp-controller="Shop" asp-action="Detail" asp-route-id="@product.Id"><img style="width: 50px" src="~/assets/uploads/images/@product.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt=""></a>
 								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
+									<a asp-controller="Shop" asp-action="Detail" asp-route-id="@product.Id" class="title">@product.Title</a>
 									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
+										<h6>$@Math.Round((product.Price - (product.Price * @product.DiscountValue / 100)),2)</h6>
+										<h6 class="l-through">$@product.Price</h6>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r2.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r3.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r5.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r6.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r7.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r9.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r10.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="~/assets/img/r11.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3">
-					<div class="ctg-right">
-						<a href="#" target="_blank">
-							<img class="img-fluid d-block mx-auto" src="~/assets/img/category/c5.jpg" alt="">
-						</a>
+					}
 					</div>
 				</div>
 			</div>

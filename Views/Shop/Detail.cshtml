@@ -23,14 +23,18 @@
 			<div class="col-lg-6">
 				<div class="s_Product_carousel">
 					<div class="single-prd-item">
-						<img class="img-fluid" src="~/assets/img/product/Final-Project Images/Nike/nike-blue/AIR+JOR1DAN+1+HIGH+G.png" alt="">
+						<img class="img-fluid" src="~/assets/uploads/images/@Model.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
 					</div>
-					<div class="single-prd-item">
-						<img class="img-fluid" src="~/assets/img/product/Final-Project Images/Nike/nike-blue/AIR+JORDAN+1+HIGH+G (1).jpeg" alt="">
-					</div>
-					<div class="single-prd-item">
-						<img class="img-fluid" src="~/assets/img/product/Final-Project Images/Nike/nike-blue/AIR+JORDAN+1+HIGH+G (2).jpeg" alt="">
-					</div>
+					
+					@foreach(Image image in Model.Images)
+					{
+						if(image.IsMain == false)
+						{
+							<div class="single-prd-item">
+								<img class="img-fluid" src="~/assets/uploads/images/@image.Url" alt="">
+							</div>
+						}
+					}
 				</div>
 			</div>
 			<div class="col-lg-5 offset-lg-1">
@@ -56,8 +60,8 @@
 						</button>
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<a class="primary-btn" href="#">Add to Cart</a>
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+						<a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Id" class="primary-btn" >Add to Cart</a>
+						<a asp-controller="Wishlist" asp-action="AddToWishlist" asp-route-id="@Model.Id"><i class="lnr lnr lnr-heart"></i></a>
 					</div>
 				</div>
 			</div>
@@ -65,3 +69,148 @@
 	</div>
 </div>
 <!--================End Single Product Area =================-->
+<!--================Product Description Area =================-->
+<section class="product_description_area">
+	<div class="container">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+				   aria-selected="false">Specification</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+				   aria-selected="false">Comments</a>
+			</li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+				<p>
+					@Model.Description
+				</p>
+			</div>
+			<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>
+									<h5>Width</h5>
+								</td>
+								<td>
+									<h5>@Model.Width<span>mm</span></h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Height</h5>
+								</td>
+								<td>
+									<h5>@Model.Height<span>mm</span></h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Depth</h5>
+								</td>
+								<td>
+									<h5>@Model.Depth<span>mm</span></h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Weight</h5>
+								</td>
+								<td>
+									<h5>@Model.Weight<span>gm</span></h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Quality checking</h5>
+								</td>
+								<td>
+									<h5>
+										@if (Model.QualityChecking)
+										{
+											<span>yes</span>
+										}else
+										{
+											<span>no</span>
+										}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="comment_list">
+							@if(Model.Comments.Count == 0)
+							{
+								<h4>No comment found...</h4>
+							}else
+							{
+								@foreach (Comment comment in Model.Comments)
+								{
+									@if (comment.IsDeleted == false)
+									{
+										<div class="review_item">
+											<div class="media">
+												<div class="d-flex">
+													@if (comment.AppUser.Image != null)
+													{
+														<img style="width: 70px; border-radius: 50%" src="~/assets/uploads/images/@comment.AppUser.Image.Url" alt="" />
+													}
+													else
+													{
+														<img style="width: 70px; border-radius: 50%" src="~/areas/admin/images/admin-deafult-pp.jpg" alt="" />
+													}
+												</div>
+												<div class="media-body">
+													<h4>@comment.AppUser.Firstname @comment.AppUser.Lastname</h4>
+													<h5>@comment.CreateDate.ToString("MMMM dd, yyyy, HH:mm", System.Globalization.CultureInfo.InvariantCulture)</h5>
+												</div>
+											</div>
+											<p>
+												@comment.Content
+											</p>
+										</div>
+									}
+								}
+							}
+						</div>
+					</div>
+					<div class="col-lg-6">
+						@if (User.Identity.IsAuthenticated)
+						{
+							<div class="review_box">
+								<h4>Post a comment</h4>
+								<form asp-controller="Shop" asp-action="AddComment" asp-route-id="@Model.Id" class="row contact_form" method="post" id="contactForm">
+									<div class="col-md-12">
+										<div class="form-group">
+											<textarea asp-for="@Model.Comment.Content" class="form-control" id="message" rows="1" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<div class="col-md-12 text-right">
+										<button type="submit" value="submit" class="btn primary-btn">Submit Now</button>
+									</div>
+								</form>
+							</div>
+						}else
+						{
+							<div class="review_box">
+								<h4>Please login for post a comment!</h4>	
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Product Description Area =================-->

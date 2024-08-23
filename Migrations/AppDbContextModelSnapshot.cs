@@ -790,7 +790,7 @@ namespace Karma.MVC.Migrations
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("Karma.MVC.Models.Brand", "Brand")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -884,6 +884,11 @@ namespace Karma.MVC.Migrations
             modelBuilder.Entity("Karma.MVC.Models.BlogCategory", b =>
                 {
                     b.Navigation("Blogs");
+                });
+
+            modelBuilder.Entity("Karma.MVC.Models.Brand", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Karma.MVC.Models.Cart", b =>

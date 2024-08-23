@@ -1,5 +1,4 @@
-﻿using Karma.MVC.Helpers.Extensions;
-using Karma.MVC.Models;
+﻿using Karma.MVC.Models;
 using Karma.MVC.Models.Identity;
 using Karma.MVC.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -11,205 +10,161 @@ namespace Karma.MVC.Areas.Admin.Controllers;
 [Area("admin"), Authorize(Roles = "Admin,SuperAdmin")]
 public class ProductController : Controller
 {
-    private readonly IProductService _productService;
-    private readonly ICategoryService _categoryService;
-    private readonly IBrandService _brandService;
-    private readonly IImageService _imageService;
-    private readonly IWebHostEnvironment _env;
-    private readonly UserManager<AppUser> _userManager;
+	private readonly IProductService _productService;
+	private readonly ICategoryService _categoryService;
+	private readonly IBrandService _brandService;
+	private readonly IImageService _imageService;
+	private readonly IWebHostEnvironment _env;
+	private readonly UserManager<AppUser> _userManager;
 
-    public ProductController(IProductService productService, ICategoryService categoryService, IBrandService brandService, IImageService imageService, UserManager<AppUser> userManager, IWebHostEnvironment env)
-    {
-        _productService = productService;
-        _categoryService = categoryService;
-        _brandService = brandService;
-        _imageService = imageService;
-        _userManager = userManager;
-        _env = env;
-    }
+	public ProductController(IProductService productService, ICategoryService categoryService, IBrandService brandService, IImageService imageService, UserManager<AppUser> userManager, IWebHostEnvironment env)
+	{
+		_productService = productService;
+		_categoryService = categoryService;
+		_brandService = brandService;
+		_imageService = imageService;
+		_userManager = userManager;
+		_env = env;
+	}
 
-    public async Task<IActionResult> Index()
-    {
-        List<Product> data;
+	public async Task<IActionResult> Index()
+	{
+		List<Product> data;
 
-        try
-        {
-            data = await _productService.GetAll();
-        }
-        catch (ArgumentNullException ex)
-        {
-            throw ex;
-        }
-        catch (NullReferenceException ex)
-        {
-            throw ex;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
+		try
+		{
+			data = await _productService.GetAll();
+		}
+		catch (ArgumentNullException ex)
+		{
+			throw ex;
+		}
+		catch (NullReferenceException ex)
+		{
+			throw ex;
+		}
+		catch (Exception)
+		{
+			throw;
+		}
 
-        return View(model: data);
-    }
+		return View(model: data);
+	}
 
-    public async Task<IActionResult> Detail(int? id)
-    {
-        Product data;
+	public async Task<IActionResult> Detail(int? id)
+	{
+		Product data;
 
-        try
-        {
-            data = await _productService.Get(id);
-        }
-        catch (ArgumentNullException ex)
-        {
-            throw ex;
-        }
-        catch (NullReferenceException ex)
-        {
-            throw ex;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
+		try
+		{
+			data = await _productService.Get(id);
+		}
+		catch (ArgumentNullException ex)
+		{
+			throw ex;
+		}
+		catch (NullReferenceException ex)
+		{
+			throw ex;
+		}
+		catch (Exception)
+		{
+			throw;
+		}
 
-        return View(model: data);
-    }
+		return View(model: data);
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> Create()
-    {
-        ViewData["Categories"] = await _categoryService.GetAll();
+	[HttpGet]
+	public async Task<IActionResult> Create()
+	{
+		ViewData["Categories"] = await _categoryService.GetAll();
+		ViewData["Brands"] = await _brandService.GetAll();
 
-        return View();
-    }
+		return View();
+	}
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(Product entity)
-    {
-        ViewData["Categories"] = await _categoryService.GetAll();
+	[HttpPost]
+	[ValidateAntiForgeryToken]
+	public async Task<IActionResult> Create(Product entity)
+	{
+		ViewData["Categories"] = await _categoryService.GetAll();
 
-        if (entity.ImageFile is null)
-        {
-            ModelState.AddModelError("ImageFile", "Image can not be empty");
-            return View(entity);
-        }
+		if (entity.ImageFile is null)
+		{
+			ModelState.AddModelError("ImageFile", "Image can not be empty");
+			return View(entity);
+		}
 
-        List<Image> images = new();
+		AppUser applicationUser = await _userManager.GetUserAsync(User);
+		entity.AppUser = applicationUser;
 
-        foreach (var imageFile in entity.ImageFile)
-        {
-            string fileName = await imageFile.CreateFile(_env);
+		await _productService.Create(entity);
+		await _productService.SaveChanges();
 
-            Image image = new();
-            image.Url = fileName;
-            image.IsMain = false;
-            images.Add(image);
-        }
+		return RedirectToAction(nameof(Index));
+	}
 
-        Image mainImage = new();
-        string mainFileName = await entity.MainImage.CreateFile(_env);
-        mainImage.Url = mainFileName;
-        mainImage.IsMain = true;
-        images.Add(mainImage);
+	[HttpGet]
+	public async Task<IActionResult> Update(int id)
+	{
+		var data = await _productService.Get(id);
 
-        entity.Images = images;
+		return View(model: data);
+	}
 
-        AppUser applicationUser = await _userManager.GetUserAsync(User);
+	[HttpPost]
+	[ValidateAntiForgeryToken]
+	public async Task<IActionResult> Update(int id, Product entity)
+	{
+		if (!ModelState.IsValid)
+		{
+			return View(entity);
+		}
 
-        entity.AppUser = applicationUser;
 
-        await _productService.Create(entity);
-        await _productService.SaveChanges();
 
-        return RedirectToAction(nameof(Index));
-    }
+		await _productService.Update(id, entity);
+		await _productService.SaveChanges();
 
-    [HttpGet]
-    public async Task<IActionResult> Update(int id)
-    {
-        var data = await _productService.Get(id);
+		return RedirectToAction(nameof(Index));
+	}
 
-        return View(model: data);
-    }
+	public async Task<IActionResult> Delete(int? id)
+	{
+		await _productService.Delete(id);
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Update(int id, Product entity)
-    {
-        if (!ModelState.IsValid)
-        {
-            return View(entity);
-        }
+		return View(nameof(Index));
+	}
 
-        List<Image> currentImages = new();
-        var data = await _productService.Get(id);
+	public async Task<IActionResult> DeleteImage(int? id)
+	{
+		await _imageService.Delete(id);
+		await _imageService.SaveChanges();
 
-        if (entity.ImageFile is not null)
-        {
-            for (int i = 0; i < data.Images.Where(n => n.IsMain == false).ToList().Count; i++)
-            {
-                currentImages.Add(data.Images.Where(n => n.IsMain == false).ToList()[i]);
-            }
+		return RedirectToAction(nameof(Index));
+	}
 
-            foreach (var imageFile in entity.ImageFile)
-            {
-                string fileName = await imageFile.CreateFile(_env);
+	[HttpGet]
+	public async Task<IActionResult> MakeDiscount(int id)
+	{
+		var data = await _productService.Get(id);
 
-                Image image = new();
-                image.Url = fileName;
-                image.IsMain = false;
-                currentImages.Add(image);
-            }
+		return View(model: data);
+	}
 
-            var images = data.Images;
-            currentImages.AddRange(images);
-        }
-        else
-        {
-            for (int i = 0; i < data.Images.Where(n => n.IsMain == false).ToList().Count; i++)
-            {
-                currentImages.Add(data.Images.Where(n => n.IsMain == false).ToList()[i]);
-            }
-        }
 
-        if (entity.MainImage is not null)
-        {
-            string fileName = await entity.MainImage.CreateFile(_env);
+	[HttpPost]
+	[ValidateAntiForgeryToken]
+	public async Task<IActionResult> MakeDiscount(int id, double discountValue)
+	{
+		var data = await _productService.Get(id);
 
-            Image image = new();
-            image.Url = fileName;
-            image.IsMain = true;
-            currentImages.Add(image);
+		data.DiscountValue = discountValue;
 
-            await _imageService.Delete(data.Images.Where(n => n.IsMain == true).FirstOrDefault().Id);
-        }
-        else
-        {
-            currentImages.Add(data.Images.Where(n => n.IsMain == true).FirstOrDefault());
-        }
+		await _productService.Update(id, data);
+		await _productService.SaveChanges();
 
-        entity.Images = currentImages;
-
-        await _productService.Update(id, entity);
-        await _productService.SaveChanges();
-
-        return RedirectToAction(nameof(Index));
-    }
-
-    public async Task<IActionResult> Delete(int? id)
-    {
-        await _productService.Delete(id);
-
-        return View(nameof(Index));
-    }
-
-    public async Task<IActionResult> DeleteImage(int? id)
-    {
-        await _imageService.Delete(id);
-        await _imageService.SaveChanges();
-
-        return RedirectToAction(nameof(Index));
-    }
+		return RedirectToAction(nameof(Index));
+	}
 }

@@ -1,4 +1,5 @@
 ﻿using Karma.MVC.Data;
+using Karma.MVC.Helpers.Extensions;
 using Karma.MVC.Models;
 using Karma.MVC.Services;
 using Microsoft.EntityFrameworkCore;
@@ -8,10 +9,13 @@ namespace Karma.MVC.Repositories;
 public class ProductRepository : IProductService
 {
     private readonly AppDbContext _context;
+    private readonly IWebHostEnvironment _env;
+    private readonly IImageService _imageService;
 
-    public ProductRepository(AppDbContext context)
+    public ProductRepository(AppDbContext context, IWebHostEnvironment env)
     {
         _context = context;
+        _env = env;
     }
 
     public async Task<Product> Get(int? id)
@@ -32,23 +36,96 @@ public class ProductRepository : IProductService
     public async Task<List<Product>> GetAll()
     {
         List<Product> products = await _context.Products.Where(n => !n.IsDeleted)
+                                                        .Include(n => n.Brand)
+                                                        .Include(n => n.Images)
                                                         .ToListAsync();
 
         return products;
     }
 
-    public Task Create(Product entity)
+    public async Task Create(Product entity)
     {
-        throw new NotImplementedException();
+        List<Image> images = new();
+
+        foreach (var imageFile in entity.ImageFile)
+        {
+            string fileName = await imageFile.CreateFile(_env);
+
+            Image image = new();
+            image.Url = fileName;
+            image.IsMain = false;
+            images.Add(image);
+        }
+
+        Image mainImage = new();
+        string mainFileName = await entity.MainImage.CreateFile(_env);
+        mainImage.Url = mainFileName;
+        mainImage.IsMain = true;
+        images.Add(mainImage);
+
+        entity.Images = images;
+
+        await _context.Products.AddAsync(entity);
     }
-    public Task Update(int id, Product entity)
+    public async Task Update(int id, Product entity)
     {
-        throw new NotImplementedException();
+        List<Image> currentImages = new();
+        var data = await Get(id);
+
+        if (entity.ImageFile is not null)
+        {
+            for (int i = 0; i < data.Images.Where(n => n.IsMain == false).ToList().Count; i++)
+            {
+                currentImages.Add(data.Images.Where(n => n.IsMain == false).ToList()[i]);
+            }
+
+            foreach (var imageFile in entity.ImageFile)
+            {
+                string fileName = await imageFile.CreateFile(_env);
+
+                Image image = new();
+                image.Url = fileName;
+                image.IsMain = false;
+                currentImages.Add(image);
+            }
+
+            var images = data.Images;
+            currentImages.AddRange(images);
+        }
+        else
+        {
+            for (int i = 0; i < data.Images.Where(n => n.IsMain == false).ToList().Count; i++)
+            {
+                currentImages.Add(data.Images.Where(n => n.IsMain == false).ToList()[i]);
+            }
+        }
+
+        if (entity.MainImage is not null)
+        {
+            string fileName = await entity.MainImage.CreateFile(_env);
+
+            Image image = new();
+            image.Url = fileName;
+            image.IsMain = true;
+            currentImages.Add(image);
+
+            await _imageService.Delete(data.Images.Where(n => n.IsMain == true).FirstOrDefault().Id);
+        }
+        else
+        {
+            currentImages.Add(data.Images.Where(n => n.IsMain == true).FirstOrDefault());
+        }
+
+        entity.Images = currentImages;
+
+        _context.Products.Update(entity);
     }
 
-    public Task Delete(int? id)
+    public async Task Delete(int? id)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        data.IsDeleted = true;
     }
 
     public async Task SaveChanges()

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Karma.MVC.Models.Identity
 {
@@ -12,6 +13,8 @@ namespace Karma.MVC.Models.Identity
         public int? ImageId { get; set; }
         public Image? Image { get; set; }
 
+        [NotMapped]
+        public IFormFile ProfileImage { get; set; }
         public ICollection<Comment>? Comments { get; set; }
         public ICollection<Product>? Products { get; set; }
 

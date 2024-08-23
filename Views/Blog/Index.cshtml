@@ -24,7 +24,7 @@
                     <img src="~/assets/img/blog/cat-post/cat-post-3.jpg" alt="post">
                     <div class="categories_details">
                         <div class="categories_text">
-                            <a href="blog-details.html">
+                            <a href="#">
                                 <h5>Social Life</h5>
                             </a>
                             <div class="border_line"></div>
@@ -80,7 +80,7 @@
                                         <a href="#">@blog.BlogCategory.Name</a>
                                     </div>
                                     <ul class="blog_meta list">
-                                        <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
+                                        <li><a href="#">@blog.AppUser.Firstname @blog.AppUser.Lastname<i class="lnr lnr-user"></i></a></li>
                                         <li><a href="#">@blog.CreateDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.InvariantCulture)<i class="lnr lnr-calendar-full"></i></a></li>
                                         <li><a href="#">@blog.Comments.Count Comments<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
@@ -90,7 +90,7 @@
                                 <div class="blog_post">
                                     <img src="~/assets/uploads/images/@blog.Images.Where(n => n.IsMain == true).FirstOrDefault().Url" alt="">
                                     <div class="blog_details">
-                                        <a href="single-blog.html">
+                                        <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">
                                             <h2>@blog.Title</h2>
                                         </a>
                                         <p>
@@ -129,32 +129,6 @@
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
-                    <aside class="single_sidebar_widget search_widget">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search Posts" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
-                            </span>
-                        </div><!-- /input-group -->
-                        <div class="br"></div>
-                    </aside>
-                    <aside class="single_sidebar_widget author_widget">
-                        <img class="author_img rounded-circle" src="~/assets/img/blog/author.png" alt="">
-                        <h4>Charlie Barber</h4>
-                        <p>Senior blog writer</p>
-                        <div class="social_icon">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-github"></i></a>
-                            <a href="#"><i class="fa fa-behance"></i></a>
-                        </div>
-                        <p>
-                            Boot camps have its supporters andit sdetractors. Some people do not understand why you
-                            should have to spend money on boot camp when you can get. Boot camps have itssuppor
-                            ters andits detractors.
-                        </p>
-                        <div class="br"></div>
-                    </aside>
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Popular Posts</h3>
                         @foreach(Blog blog in Model.PopularBlogs)
@@ -181,7 +155,7 @@
                                 <li>
                                     <a href="#" class="d-flex justify-content-between">
                                         <p>@blogCategory.Name</p>
-                                        <p>37</p>
+                                        <p>@blogCategory.Blogs.Count</p>
                                     </a>
                                 </li>
                             }

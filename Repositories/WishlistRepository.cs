@@ -7,50 +7,68 @@ namespace Karma.MVC.Repositories;
 
 public class WishlistRepository : IWishlistService
 {
-    private readonly AppDbContext _context;
+	private readonly AppDbContext _context;
 
-    public WishlistRepository(AppDbContext context)
-    {
-        _context = context;
-    }
+	public WishlistRepository(AppDbContext context)
+	{
+		_context = context;
+	}
 
-    public async Task<Wishlist> Get(int? id)
-    {
-        Wishlist wishlist = await _context.Wishlists.Where(n => !n.IsDeleted)
-                                                    .Include(n => n.Products)
-                                                    .ThenInclude(n => n.Images)
-                                                    .FirstOrDefaultAsync();
-        return wishlist;
-    }
+	public async Task<Wishlist> Get(int? id)
+	{
+		Wishlist wishlist = await _context.Wishlists.Where(n => !n.IsDeleted)
+													.Include(n => n.Products)
+													.ThenInclude(n => n.Images)
+													.FirstOrDefaultAsync();
+		return wishlist;
+	}
 
-    public async Task<List<Wishlist>> GetAll()
-    {
-        List<Wishlist> wishlists = await _context.Wishlists.Where(n => !n.IsDeleted)
-                                                           .Include(n => n.Products)
-                                                           .ThenInclude(n => n.Images)
-                                                           .ToListAsync();
+	public async Task<List<Wishlist>> GetAll()
+	{
+		List<Wishlist> wishlists = await _context.Wishlists.Where(n => !n.IsDeleted)
+														   .Include(n => n.Products)
+														   .ThenInclude(n => n.Images)
+														   .ToListAsync();
 
-        return wishlists;
-    }
+		return wishlists;
+	}
 
-    public Task Create(Wishlist entity)
-    {
+	public async Task Create(Wishlist entity)
+	{
+		entity.CreateDate = DateTime.UtcNow.AddHours(4);
 
+		await _context.Wishlists.AddAsync(entity);
+	}
 
-        throw new NotImplementedException();
-    }
-    public Task Update(int id, Wishlist entity)
-    {
-        throw new NotImplementedException();
-    }
+	public async Task Update(int id, Wishlist entity)
+	{
+		var data = await Get(id);
 
-    public Task Delete(int? id)
-    {
-        throw new NotImplementedException();
-    }
+		if (data is null)
+		{
+			throw new NullReferenceException();
+		}
 
-    public async Task SaveChanges()
-    {
-        await _context.SaveChangesAsync();
-    }
+		data.UpdateDate = DateTime.UtcNow.AddHours(4);
+		data.Products = entity.Products;
+
+		_context.Wishlists.Update(data);
+	}
+
+	public async Task Delete(int? id)
+	{
+		var data = await Get(id);
+
+		if (data is null)
+		{
+			throw new NullReferenceException();
+		}
+
+		data.IsDeleted = true;
+	}
+
+	public async Task SaveChanges()
+	{
+		await _context.SaveChangesAsync();
+	}
 }

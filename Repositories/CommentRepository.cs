@@ -7,16 +7,16 @@ namespace Karma.MVC.Repositories;
 
 public class CommentRepository : ICommentService
 {
-    private readonly AppDbContext _contex;
+    private readonly AppDbContext _context;
 
-    public CommentRepository(AppDbContext contex)
+    public CommentRepository(AppDbContext context)
     {
-        _contex = contex;
+        _context = context;
     }
 
     public async Task<Comment> Get(int? id)
     {
-        Comment comment = await _contex.Comments.Where(n => !n.IsDeleted)
+        Comment comment = await _context.Comments.Where(n => !n.IsDeleted)
                                                 .Where(n => n.Id == id)
                                                 .Include(n => n.AppUser)
                                                 .ThenInclude(n => n.Image)
@@ -27,7 +27,7 @@ public class CommentRepository : ICommentService
 
     public async Task<List<Comment>> GetAll()
     {
-        List<Comment> comments = await _contex.Comments.Where(n => !n.IsDeleted)
+        List<Comment> comments = await _context.Comments.Where(n => !n.IsDeleted)
                                                        .Include(n => n.AppUser)
                                                        .ThenInclude(n => n.Image)
                                                        .ToListAsync();
@@ -35,23 +35,30 @@ public class CommentRepository : ICommentService
         return comments;
     }
 
-    public Task Create(Comment entity)
+    public async Task Create(Comment entity)
     {
-        throw new NotImplementedException();
+        entity.CreateDate = DateTime.UtcNow.AddHours(4);
+
+        await _context.Comments.AddAsync(entity);
     }
 
-    public Task Update(int id, Comment entity)
+    public async Task Update(int id, Comment entity)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        data.UpdateDate = DateTime.UtcNow.AddHours(4);
+        data.Content = entity.Content;
     }
 
-    public Task Delete(int? id)
+    public async Task Delete(int? id)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        data.IsDeleted = true;
     }
 
     public async Task SaveChanges()
     {
-        await _contex.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 }

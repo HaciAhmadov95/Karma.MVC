@@ -1,6 +1,7 @@
 ﻿using Karma.MVC.Data;
 using Karma.MVC.Models;
 using Karma.MVC.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Karma.MVC.Repositories;
 
@@ -13,33 +14,61 @@ public class ImageRepository : IImageService
         _context = context;
     }
 
-    public Task<Image> Get(int? id)
+    public async Task<Image> Get(int? id)
     {
-        throw new NotImplementedException();
+        if (id is null)
+        {
+            throw new ArgumentNullException(nameof(id));
+        }
+
+        var data = await _context.Images.Where(n => n.Id == id).FirstOrDefaultAsync();
+
+        if (data is null)
+        {
+            throw new NullReferenceException();
+        }
+
+        return data;
     }
 
-    public Task<List<Image>> GetAll()
+    public async Task<List<Image>> GetAll()
     {
-        throw new NotImplementedException();
+        var data = await _context.Images.ToListAsync();
+
+        if (data is null)
+        {
+            throw new NullReferenceException();
+        }
+
+        return data;
     }
 
-    public Task Create(Image entity)
+    public async Task Create(Image entity)
     {
-        throw new NotImplementedException();
-    }
-    public Task Update(int id, Image entity)
-    {
-        throw new NotImplementedException();
+        await _context.Images.AddAsync(entity);
     }
 
-    public Task Delete(int? id)
+    public async Task Update(int id, Image entity)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        if (data is null)
+        {
+            throw new NullReferenceException();
+        }
+
+        data.Url = entity.Url;
     }
 
-    public Task SaveChanges()
+    public async Task Delete(int? id)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        _context.Images.Remove(data);
     }
 
+    public async Task SaveChanges()
+    {
+        await _context.SaveChangesAsync();
+    }
 }

@@ -17,6 +17,7 @@ public class CategoryRepository : ICategoryService
     public async Task<Category> Get(int? id)
     {
         Category category = await _context.Categories.Where(n => !n.IsDeleted)
+                                                     .Include(n => n.Products)
                                                      .Where(n => n.Id == id)
                                                      .FirstOrDefaultAsync();
         return category;
@@ -25,6 +26,7 @@ public class CategoryRepository : ICategoryService
     public async Task<List<Category>> GetAll()
     {
         List<Category> categories = await _context.Categories.Where(n => !n.IsDeleted)
+                                                             .Include(n => n.Products)
                                                              .ToListAsync();
 
         return categories;

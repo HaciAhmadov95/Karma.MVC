@@ -1,0 +1,22 @@
+﻿@model Color
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Color - Create</h4>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <form enctype="multipart/form-data" method="post" class="forms-sample">
+                        <div class="form-group">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Create Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2 text-white">Submit</button>
+                        <button asp-controller="color" asp-action="index" class="btn btn-secondary text-white">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

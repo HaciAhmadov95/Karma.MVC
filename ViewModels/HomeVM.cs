@@ -2,5 +2,8 @@
 
 public class HomeVM
 {
-    public GetProductVM GetProductVM { get; set; }
+    public List<GetProductVM> SliderProducts { get; set; }
+    public List<GetProductVM> BrandsProducts { get; set; }
+    public List<GetProductVM> BannerProducts { get; set; }
+    public List<GetProductVM> DiscountedProducts { get; set; }
 }

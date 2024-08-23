@@ -18,6 +18,7 @@ public class BrandRepository : IBrandService
     {
         Brand brand = await _context.Brands.Where(n => !n.IsDeleted)
                                            .Where(n => n.Id == id)
+                                           .Include(n => n.Products)
                                            .FirstOrDefaultAsync();
 
         return brand;
@@ -26,6 +27,7 @@ public class BrandRepository : IBrandService
     public async Task<List<Brand>> GetAll()
     {
         List<Brand> brands = await _context.Brands.Where(n => !n.IsDeleted)
+                                                  .Include(n => n.Products)
                                                   .ToListAsync();
 
         return brands;

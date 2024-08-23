@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QjkZtpLf8lMbenZaOUUJlko7w/XRJkbvNGU4UzXRtN0=",
+  "Hash": "gy+csDNPtVFRfKQmcT4JCQBrP1cugsgzZi36RDuyMFo=",
   "Source": "Karma.MVC",
   "BasePath": "_content/Karma.MVC",
   "Mode": "Default",
@@ -31773,6 +31773,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\men-bg.jpg"
     },
     {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\next.png",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/img/next.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\next.png"
+    },
+    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\ob1.jpg",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -32757,6 +32774,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\organic-food\\u3.png"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\prev.png",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/img/prev.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\prev.png"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\img\\product\\card.jpg",
@@ -35581,6 +35615,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\scss\\theme\\_variables.scss"
     },
     {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\047ce1a4-5071-4b49-ae63-819b989b5fdeportrait-young-student-education-day.jpg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/047ce1a4-5071-4b49-ae63-819b989b5fdeportrait-young-student-education-day.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\047ce1a4-5071-4b49-ae63-819b989b5fdeportrait-young-student-education-day.jpg"
+    },
+    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\0e30bfd0-a659-4def-a0a8-704a572f0ae9post-img1.jpg",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -35598,6 +35649,40 @@
       "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\0e30bfd0-a659-4def-a0a8-704a572f0ae9post-img1.jpg"
     },
     {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\2a445ec5-aa05-430e-af80-d1a433420132portrait-young-student-education-day.jpg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/2a445ec5-aa05-430e-af80-d1a433420132portrait-young-student-education-day.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\2a445ec5-aa05-430e-af80-d1a433420132portrait-young-student-education-day.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\4020bfe1-3408-4d1a-a552-3a3b656b2ee3AIR+JORDAN+1+HIGH+G (1).jpeg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/4020bfe1-3408-4d1a-a552-3a3b656b2ee3AIR+JORDAN+1+HIGH+G (1).jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\4020bfe1-3408-4d1a-a552-3a3b656b2ee3AIR+JORDAN+1+HIGH+G (1).jpeg"
+    },
+    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\43742fa9-16af-4148-b386-e1a42d127e36post-img2.jpg",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -35613,6 +35698,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\43742fa9-16af-4148-b386-e1a42d127e36post-img2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\46a4944a-6c7d-4152-9b1f-a604cb89858cAIR+JOR1DAN+1+HIGH+G.png",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/46a4944a-6c7d-4152-9b1f-a604cb89858cAIR+JOR1DAN+1+HIGH+G.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\46a4944a-6c7d-4152-9b1f-a604cb89858cAIR+JOR1DAN+1+HIGH+G.png"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\4b6b2b24-0c5a-4773-8f31-8da143835152post-img2.jpg",
@@ -35666,6 +35768,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\55643ea2-2fc9-471c-997e-a1138f7f84acfeature-img1.jpg"
     },
     {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\7a731bda-3ef3-437b-b5cf-841d15dbd714portrait-young-student-education-day.jpg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/7a731bda-3ef3-437b-b5cf-841d15dbd714portrait-young-student-education-day.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\7a731bda-3ef3-437b-b5cf-841d15dbd714portrait-young-student-education-day.jpg"
+    },
+    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\860ddcea-dbc7-414d-ab33-ef2542826fe1post-img1.jpg",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -35700,23 +35819,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\b0bbaa7e-673a-4f98-8c7f-081a5b80b427post-img1.jpg"
     },
     {
-      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\c36f08d6-b3d1-4605-86b4-12518dc20e3bfeature-img1.jpg",
-      "SourceId": "Karma.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
-      "BasePath": "_content/Karma.MVC",
-      "RelativePath": "assets/uploads/images/c36f08d6-b3d1-4605-86b4-12518dc20e3bfeature-img1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\c36f08d6-b3d1-4605-86b4-12518dc20e3bfeature-img1.jpg"
-    },
-    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\c65908c6-6ccb-4a89-a4eb-ee8005bda7c7post-img2.jpg",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -35732,6 +35834,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\c65908c6-6ccb-4a89-a4eb-ee8005bda7c7post-img2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\d6afab08-0f90-43ed-98fd-5242f5e88e05portrait-young-student-education-day.jpg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/d6afab08-0f90-43ed-98fd-5242f5e88e05portrait-young-student-education-day.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\d6afab08-0f90-43ed-98fd-5242f5e88e05portrait-young-student-education-day.jpg"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\d99a8bac-3dce-4442-8fde-6cd60a67535fpost-img1.jpg",
@@ -35768,6 +35887,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\da235baa-0533-4971-b114-6de4367686f0post-img2.jpg"
     },
     {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\df62054d-8ac4-4c9b-867e-d9ed462e31f6AIR+JORDAN+1+HIGH+G (2).jpeg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/df62054d-8ac4-4c9b-867e-d9ed462e31f6AIR+JORDAN+1+HIGH+G (2).jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\df62054d-8ac4-4c9b-867e-d9ed462e31f6AIR+JORDAN+1+HIGH+G (2).jpeg"
+    },
+    {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\e690885a-1f88-4d97-8a68-3dc3f24b6c76feature-img1.jpg",
       "SourceId": "Karma.MVC",
       "SourceType": "Discovered",
@@ -35783,6 +35919,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\e690885a-1f88-4d97-8a68-3dc3f24b6c76feature-img1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\f1964387-590a-4a00-b1d0-104baf55c863portrait-young-student-education-day.jpg",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/f1964387-590a-4a00-b1d0-104baf55c863portrait-young-student-education-day.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\f1964387-590a-4a00-b1d0-104baf55c863portrait-young-student-education-day.jpg"
     }
   ]
 }

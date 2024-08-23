@@ -33,19 +33,39 @@ public class CartRepository : ICartService
         return carts;
     }
 
-    public Task Create(Cart entity)
+    public async Task Create(Cart entity)
     {
-        throw new NotImplementedException();
+        entity.CreateDate = DateTime.UtcNow.AddHours(4);
+
+        await _context.Carts.AddAsync(entity);
     }
 
-    public Task Update(int id, Cart entity)
+    public async Task Update(int id, Cart entity)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        if (data is null)
+        {
+            throw new NullReferenceException();
+        }
+
+        data.UpdateDate = DateTime.UtcNow.AddHours(4);
+        data.Products = entity.Products;
+        data.TotalPrice = entity.TotalPrice;
+
+        _context.Carts.Update(data);
     }
 
-    public Task Delete(int? id)
+    public async Task Delete(int? id)
     {
-        throw new NotImplementedException();
+        var data = await Get(id);
+
+        if (data is null)
+        {
+            throw new NullReferenceException();
+        }
+
+        data.IsDeleted = true;
     }
 
     public async Task SaveChanges()
