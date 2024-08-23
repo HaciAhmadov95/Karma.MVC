@@ -1,4 +1,8 @@
-﻿<!-- Start Banner Area -->
+﻿@{
+	var settings = (Dictionary<string, string>)ViewData["settings"];
+}
+
+<!-- Start Banner Area -->
 <section class="banner-area organic-breadcrumb">
 	<div class="container">
 		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -24,17 +28,17 @@
 				<div class="contact_info">
 					<div class="info_item">
 						<i class="lnr lnr-home"></i>
-						<h6>California, United States</h6>
-						<p>Santa monica bullevard</p>
+						<h6>@settings["country"]</h6>
+						<p>@settings["city"]</p>
 					</div>
 					<div class="info_item">
 						<i class="lnr lnr-phone-handset"></i>
-						<h6><a href="#">00 (440) 9865 562</a></h6>
+						<h6><a href="#">@settings["phoneNumber"]</a></h6>
 						<p>Mon to Fri 9am to 6 pm</p>
 					</div>
 					<div class="info_item">
 						<i class="lnr lnr-envelope"></i>
-						<h6><a href="#">support@karma.com</a></h6>
+						<h6><a href="#">@settings["email"]</a></h6>
 						<p>Send us your query anytime!</p>
 					</div>
 				</div>

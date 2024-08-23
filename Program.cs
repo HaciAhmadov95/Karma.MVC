@@ -40,6 +40,7 @@ builder.Services.AddScoped<IProductService, ProductRepository>();
 builder.Services.AddScoped<ISubscriberService, SubscriberRepository>();
 builder.Services.AddScoped<IWishlistService, WishlistRepository>();
 builder.Services.AddScoped<IColorService, ColorRepository>();
+builder.Services.AddScoped<SettingRepository>();
 
 builder.Services.AddAutoMapper(typeof(Mapper));
 

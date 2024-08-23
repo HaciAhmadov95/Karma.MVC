@@ -53,58 +53,59 @@ $(document).ready(function(){
     Javascript for banner area carousel
     ==================================*/
     $(".active-banner-slider").owlCarousel({
-        items:1,
-        autoplay:false,
+        items: 1,
+        autoplay: false,
         autoplayTimeout: 5000,
-        loop:true,
-        nav:true,
-        navText: ["<img src='~/assets/img/banner/prev.png'>","<img src='~/assets/img/banner/next.png'>"],
-        dots:false
+        loop: true,
+        nav: true,
+        navText: ["<img src='./assets/img/banner/prev.png'>", "<img src='./assets/img/banner/next.png'>"],
+        dots: false
     });
 
     /*=================================
     Javascript for product area carousel
     ==================================*/
     $(".active-product-area").owlCarousel({
-        items:1,
-        autoplay:false,
+        items: 1,
+        autoplay: false,
         autoplayTimeout: 5000,
-        loop:true,
-        nav:true,
-        navText: ["<img src='~/assets/img/product/prev.png'>","<img src='~/assets/img/product/next.png'>"],
-        dots:false
+        loop: true,
+        nav: true,
+        navText: ["<img src='./assets/img/product/prev.png'>", "<img src='./assets/img/product/next.png'>"],
+        dots: false
     });
 
     /*=================================
     Javascript for single product area carousel
     ==================================*/
     $(".s_Product_carousel").owlCarousel({
-      items:1,
-      autoplay:false,
-      autoplayTimeout: 5000,
-      loop:true,
-      nav:false,
-      dots:true
+        items: 1,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        loop: true,
+        nav: false,
+        navText: ["<img src='./assets/img/banner/prev.png'>", "<img src='./assets/img/banner/next.png'>"],
+        dots: true
     });
-    
+
     /*=================================
     Javascript for exclusive area carousel
     ==================================*/
     $(".active-exclusive-product-slider").owlCarousel({
-        items:1,
-        autoplay:false,
+        items: 1,
+        autoplay: false,
         autoplayTimeout: 5000,
-        loop:true,
-        nav:true,
-        navText: ["<img src='~/assets/img/product/prev.png'>","<img src='~/assets/img/product/next.png'>"],
-        dots:false
+        loop: true,
+        nav: true,
+        navText: ["<img src='./assets/img/product/prev.png'>", "<img src='./assets/img/product/next.png'>"],
+        dots: false
     });
 
     //--------- Accordion Icon Change ---------//
 
-    $('.collapse').on('shown.bs.collapse', function(){
+    $('.collapse').on('shown.bs.collapse', function () {
         $(this).parent().find(".lnr-arrow-right").removeClass("lnr-arrow-right").addClass("lnr-arrow-left");
-    }).on('hidden.bs.collapse', function(){
+    }).on('hidden.bs.collapse', function () {
         $(this).parent().find(".lnr-arrow-left").removeClass("lnr-arrow-left").addClass("lnr-arrow-right");
     });
 
