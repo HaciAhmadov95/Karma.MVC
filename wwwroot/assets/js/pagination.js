@@ -26,8 +26,17 @@
         if (!$(this).hasClass("prev-arrow") && !$(this).hasClass("next-arrow")) {
             prevArrow.href = `?page=${parseInt(page) - 1}`
             nextArrow.href = `?page=${parseInt(page) + 1}`
-        }
+        };
 
+        var pageLinks = document.querySelectorAll(".page-link");
+
+        for (var i = 0; i < pageLinks.length; i++) {
+            if (parseInt(pageLinks[i].getAttribute('href').split('page=')[1]) == parseInt(page)) {
+                pageLinks[i].classList.add("active")
+            } else {
+                pageLinks[i].classList.remove("active")
+            }
+        }
 
 
         fetch('/shop/pagedData?pageNumber=' + page)

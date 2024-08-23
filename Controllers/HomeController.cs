@@ -21,7 +21,7 @@ public class HomeController : Controller
     {
         List<Product> products = await _productService.GetAll();
 
-        List<Product> sliderProducts = products.OrderByDescending(n => n.CreateDate).Take(4).ToList();
+        List<Product> sliderProducts = products.OrderByDescending(n => n.CreateDate).ToList();
         List<Product> discountedProducts = products.OrderByDescending(n => n.CreateDate).Where(n => n.DiscountValue != 0).Take(12).ToList();
 
         HomeVM homeVM = new()
@@ -29,7 +29,7 @@ public class HomeController : Controller
             SliderProducts = _mapper.Map<List<GetProductVM>>(sliderProducts),
             BannerProducts = _mapper.Map<List<GetProductVM>>(sliderProducts),
             DiscountedProducts = _mapper.Map<List<GetProductVM>>(discountedProducts),
-            BrandsProducts = null
+            BrandsProducts = _mapper.Map<List<GetProductVM>>(sliderProducts)
         };
 
 

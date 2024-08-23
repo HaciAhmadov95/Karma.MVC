@@ -62,6 +62,8 @@ namespace Karma.MVC.Controllers
             //{
             //    return RedirectToAction(nameof(Detail), vm);
             //}
+            Blog blog = await _blogService.Get(id);
+
             Comment comment = new()
             {
                 Content = content,
@@ -72,7 +74,7 @@ namespace Karma.MVC.Controllers
             await _commentService.Create(comment);
             await _commentService.SaveChanges();
 
-            return RedirectToAction(nameof(Detail), comment);
+            return RedirectToAction(nameof(Detail), blog);
         }
     }
 }

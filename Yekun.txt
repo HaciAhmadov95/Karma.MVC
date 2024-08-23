@@ -1,0 +1,7 @@
+1. Iconlar
+2. Admin panelde product elave eliyende reng secmek
+3. Cart quantity duzeltmek
+4. Contact admine mesaj
+5. Setting admin panel
+6. Cart totalprice
+7. Search

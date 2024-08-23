@@ -133,10 +133,10 @@ public class ProductRepository : IProductService
 		await _context.SaveChangesAsync();
 	}
 
-	public async Task<List<Product>> GetPagedData(int pageNumber = 1, int pageSize = 1)
+	public async Task<List<Product>> GetPagedData(int pageNumber = 1, int pageSize = 6)
 	{
 
-		List<Product> data = await _context.Products.Skip((pageNumber - 1) * pageSize)
+		List<Product> data = await _context.Products.Where(n => !n.IsDeleted).Skip((pageNumber - 1) * pageSize)
 										  .Take(pageSize)
 										  .Include(n => n.Brand)
 										  .Include(n => n.Images)
@@ -145,4 +145,26 @@ public class ProductRepository : IProductService
 		return data;
 	}
 
+	public async Task<List<Product>> FilterDataCategory(int filterId)
+	{
+		List<Product> data = await _context.Products.Where(n => !n.IsDeleted)
+										.Include(n => n.Category)
+										.Where(n => n.Category.Id == filterId)
+										.Include(n => n.Brand)
+										.Include(n => n.Images)
+										.ToListAsync();
+
+		return data;
+	}
+
+	public async Task<List<Product>> FilterDataBrand(int filterId)
+	{
+		List<Product> data = await _context.Products.Where(n => !n.IsDeleted)
+										.Include(n => n.Brand)
+										.Where(n => n.Brand.Id == filterId)
+										.Include(n => n.Images)
+										.ToListAsync();
+
+		return data;
+	}
 }

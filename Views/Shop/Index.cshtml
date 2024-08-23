@@ -30,7 +30,7 @@
 					@foreach(Category category in Model.Categories)
 					{
 						<li class="main-nav-list">
-							<a href="#fruitsVegetable">
+							<a class="category-filter" href="@category.Id">
 								<span class="lnr lnr-arrow-right"></span>@category.Name<span class="number">(@category.Products.Count)</span>
 							</a>
 						</li>
@@ -42,10 +42,14 @@
 					<div class="common-filter">
 						<div class="head">Brands</div>
 						<form action="#">
-							<ul>
+							<ul class="main-categories">
 							@foreach(Brand brand in Model.Brands)
 							{
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="">@brand.Name<span>(@brand.Products.Count)</span></label></li>
+								<li class="main-nav-list filter-list">
+									<a class="brand-filter" href="@brand.Id">
+										@brand.Name<span class="number">(@brand.Products.Count)</span>
+									</a>
+								</li>
 							}
 							</ul>
 						</form>
@@ -56,24 +60,14 @@
 							<ul>
 							@foreach(Color color in Model.Colors)
 							{
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">@color.Name<span>(@color.Products.Count)</span></label></li>
+								<li class="main-nav-list filter-list">
+									<a style="color: #000" class="brand-filter" href="@color.Id">
+										@color.Name<span class="number">(@color.Products.Count)</span>
+									</a>
+								</li>
 							}
 						</ul>
 						</form>
-					</div>
-					<div class="common-filter">
-						<div class="head">Price</div>
-						<div class="price-range-area">
-							<div id="price-range"></div>
-							<div class="value-wrapper d-flex">
-								<div class="price">Price:</div>
-								<span>$</span>
-								<div id="lower-value"></div>
-								<div class="to">to</div>
-								<span>$</span>
-								<div id="upper-value"></div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

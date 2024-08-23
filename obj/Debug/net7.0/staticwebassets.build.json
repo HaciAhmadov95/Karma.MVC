@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0XQZUYRCDleFI/YYw4gM3z1mxd+dT0EbSrRuDvinvA8=",
+  "Hash": "gYPvljsMc1cL9q3wWixFH/ukj3qibhXI10lxh60fWvM=",
   "Source": "Karma.MVC",
   "BasePath": "_content/Karma.MVC",
   "Mode": "Default",
@@ -36004,6 +36004,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\c65908c6-6ccb-4a89-a4eb-ee8005bda7c7post-img2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\cbb38005-d9ca-45ce-ad94-01fd749fd583100208444_BT_eCom-tif.webp",
+      "SourceId": "Karma.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\",
+      "BasePath": "_content/Karma.MVC",
+      "RelativePath": "assets/uploads/images/cbb38005-d9ca-45ce-ad94-01fd749fd583100208444_BT_eCom-tif.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\uploads\\images\\cbb38005-d9ca-45ce-ad94-01fd749fd583100208444_BT_eCom-tif.webp"
     },
     {
       "Identity": "C:\\Users\\hsyna\\Desktop\\Haci\\Karma.MVC\\wwwroot\\assets\\uploads\\images\\d6afab08-0f90-43ed-98fd-5242f5e88e05portrait-young-student-education-day.jpg",

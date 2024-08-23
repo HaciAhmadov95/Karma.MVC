@@ -35,13 +35,13 @@ namespace Karma.MVC.Controllers
 		{
 
 			List<Product> products = await _productService.GetAll();
-			List<GetProductVM> productsVM = _mapper.Map<List<GetProductVM>>(products.Take(1).ToList());
+			List<GetProductVM> productsVM = _mapper.Map<List<GetProductVM>>(products.Take(6).ToList());
 			List<Brand> brands = await _brandService.GetAll();
 			List<Category> categories = await _categoryService.GetAll();
 			List<Color> colors = await _colorService.GetAll();
 
 			ViewData["CurrentPage"] = 1;
-			ViewData["TotalPages"] = products.Count < 1 ? 1 : (int)Math.Ceiling((decimal)products.Count / 1);
+			ViewData["TotalPages"] = products.Count < 1 ? 6 : (int)Math.Ceiling((decimal)products.Count / 6);
 
 			ShopVM shopVM = new()
 			{
@@ -104,5 +104,18 @@ namespace Karma.MVC.Controllers
 			return Json(product);
 		}
 
+		public async Task<IActionResult> FilterCategory(int filterId)
+		{
+			List<Product> products = await _productService.FilterDataCategory(filterId);
+
+			return Json(products);
+		}
+
+		public async Task<IActionResult> FilterBrand(int filterId)
+		{
+			List<Product> products = await _productService.FilterDataBrand(filterId);
+
+			return Json(products);
+		}
 	}
 }

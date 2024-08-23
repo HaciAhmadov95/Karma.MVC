@@ -33840,6 +33840,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\uploads\images\c65908c6-6ccb-4a89-a4eb-ee8005bda7c7post-img2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\uploads\images\cbb38005-d9ca-45ce-ad94-01fd749fd583100208444_BT_eCom-tif.webp))">
+      <SourceType>Package</SourceType>
+      <SourceId>Karma.MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Karma.MVC</BasePath>
+      <RelativePath>assets/uploads/images/cbb38005-d9ca-45ce-ad94-01fd749fd583100208444_BT_eCom-tif.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\uploads\images\cbb38005-d9ca-45ce-ad94-01fd749fd583100208444_BT_eCom-tif.webp))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\uploads\images\d6afab08-0f90-43ed-98fd-5242f5e88e05portrait-young-student-education-day.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Karma.MVC</SourceId>
